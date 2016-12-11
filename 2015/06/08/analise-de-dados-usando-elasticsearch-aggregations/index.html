@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Aécio Santos</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="/static/css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .navbar .navbar-nav {
+      display: inline-block;
+      float: none;
+      vertical-align: top;
+    }
+    .navbar .navbar-collapse {
+      text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Blog</a>
+                    </li>
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-color: #0A5556;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <img alt="Aécio Santos" src="/static/img/avatar.jpeg" class="img-circle" style="max-width:150px">
+                        <h1>Aécio Santos</h1>
+                        <hr class="small">
+                        <span class="subheading">Just another personal web site.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>October 6, 2012</p>
+<h1>Análise de dados usando Elasticsearch Aggregations</h1>
+<img class="img-responsive" src="/static/img/elasticsearch.png" alt="Elasticsearch logo">
+<p>O <a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a> é uma ferramenta que surgiu inicialmente com intenção de ser uma máquina de busca distribuída desenvolvida em cima da biblioteca <a href="http://lucene.apache.org/">Apache Lucene</a>. Ao longo do tempo, com a adição de novas features, foram surgindo diferentes casos de uso da ferramenta que vão muito além da busca textual para qual foi inicialmente desenvolvida.</p>
+<h2>Agregações</h2>
+<p>A partir da versão 1.0, o Elasticsearch lançou uma feature que permite agregações de dados. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html">Agregações</a> são computações feitas em cima dos documentos retornados por alguma consulta. Por exemplo, dado um conjunto de documentos que casam com uma consulta, é possivel computar quais são os termos mais frequentes, quantos documentos caem em uma determinada faixa de tempo, quais documentos estão dentro de uma distância geográfica, e por ai vai.</p>
+<p>No Elasticsearch existem diversass implementações de agregações disponíveis que podem ser classificadas em duas categorias:</p>
+<ul>
+<li><strong>Bucketing aggregations</strong> – Permitem o agrupamento dos documentos resultantes de uma consulta em partições de acordo com valores extraídos dos documentos. O resultado final de uma agregação será uma lista de buckets, cada um contendo um subconjunto dos documentos da consulta. Dependendo da agregração utilizada, um bucket pode ser um intervalo numérico, um intervalo de datas, um termo, um raio de distância geográfica, etc.</li>
+<li><strong>Metrics aggregations</strong> – Agregações de métricas computam valores a partir de um documento, sejam extraíndo o valor diretamente do documento, ou realizando alguma computação em cima de valores extraídos dos documentos.</li>
+</ul>
+<p>Uma das características mais importantes das agregações é que elas podem ser aninhadas, ou seja, você pode computar agregações em cima dos resultados de outras agregações, como veremos nos exemplos mais a frente.</p>
+<p>Agregrações tem a seguinte estrutura básica:</p>
+<pre><code>&quot;aggregations&quot; : {
+    &quot;&lt;aggregation_name&gt;&quot; : {
+        &quot;&lt;aggregation_type&gt;&quot; : {
+            &lt;aggregation_body&gt;
+        }
+        [,&quot;aggregations&quot; : { [&lt;sub_aggregation&gt;]+ } ]?
+    }
+    [,&quot;&lt;aggregation_name_2&gt;&quot; : { ... } ]*
+}
+</code></pre>
+<p>onde: <code>aggregation_name</code> é um nome qualquer escolhido por você para identificar uma agregação, <code>aggregation_type</code> é o tipo da agregação (como por ex: <em>min, max, avg, stats, terms, geo_distance, etc.</em>), <code>aggregation_body</code> são os parâmetros da agregação e <code>aggregations</code> é um array (opcional) de agregações aninhadas que irão operar sobre os resultados da agregação definida no nível acima. As subagregações definidas no array <em>aggregations</em> também podem ter subagregações aninhadas. Não há um número máximo para a quantidade de agregações aninhadas.</p>
+<h2>Exemplo de uso de agregações com dados reais</h2>
+<p>Para esse exemplo, vamos utilizar dados sobre os candidatos a Deputado Estadual e Federal do estado de Minas Gerais nas Eleições de 2014. Os dados estão disponíveis no site do TSE <a href="http://www.tse.jus.br/eleicoes/eleicoes-2014/sistema-de-divulgacao-de-candidaturas">neste link</a> (também disponível em formato CSV). Também dá pra visualizar a lista completa <a href="http://g1.globo.com/politica/eleicoes/2014/mg/candidatos-deputado-federal.html">aqui</a> (deputados federais) e <a href="http://g1.globo.com/politica/eleicoes/2014/mg/candidatos-deputado-estadual.html">aqui</a> (deputados estaduais).</p>
+<p>Inicialmente os dados precisam ser indexados no Elasticsearch. Para isso, vamos organizar os dados em documento JSON da seguinte forma:</p>
+<pre><code>{
+  &quot;partido&quot;: &quot;PARTIDO&quot;,
+  &quot;nome&quot;: &quot;NOME DO CANDIDATO&quot;,
+  &quot;numero&quot;: 99999,
+  &quot;coligacao&quot;: &quot;PARTIDO1 / PARTIDO2 / PARTIDO3&quot;
+}
+</code></pre>
+<p>Mas antes de indexar os documentos, vamos criar <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping.html">mappings</a> para informar explicitamente ao Elasticsearch que o texto de alguns campos não deve ser pré-processado. Por padrão, o Elasticsearch realiza um processo de análise de texto que envove quebra o texto em termos, tranformação de caracteres em minúsculas, remoção de sufixos, e outros. A criação de mappings no Elasticsearch pode ser comparada a definição do esquema de uma tabela em um banco de dados relacional, porém no Elasticsearch este passo é opcional.</p>
+<p>O objetivo de criar os mappings nesse exemplo é somente para evitar o comportamento padrão do Elasticsearch, que é fazer pre-processamento do texto antes de indexar. Para isso, vamos mapear os campos <code>partido</code> e <code>coligacao</code> do documento JSON como &quot;não analizados&quot;.</p>
+<p>Vamos indexar cada tipo de candidato em tipos diferentes no Elasticsearch: <code>dep_federal</code> e <code>dep_estadual</code>, como comando cURL a seguir:</p>
+<pre><code>curl -XPUT 'http://localhost:9200/eleicoes2014' -d '{
+   &quot;mappings&quot;: {
+      &quot;dep_federal&quot;: {
+         &quot;properties&quot;: {
+            &quot;partido&quot;: {
+               &quot;type&quot;: &quot;string&quot;,
+               &quot;index&quot;: &quot;not_analyzed&quot;
+            },
+            &quot;coligacao&quot;: {
+               &quot;type&quot;: &quot;string&quot;,
+               &quot;index&quot;: &quot;not_analyzed&quot;
+            },
+            &quot;numero&quot;: {
+               &quot;type&quot;: &quot;integer&quot;
+            }
+         }
+      },
+      &quot;dep_estadual&quot;: {
+         &quot;properties&quot;: {
+            &quot;partido&quot;: {
+               &quot;type&quot;: &quot;string&quot;,
+               &quot;index&quot;: &quot;not_analyzed&quot;
+            },
+            &quot;coligacao&quot;: {
+               &quot;type&quot;: &quot;string&quot;,
+               &quot;index&quot;: &quot;not_analyzed&quot;
+            },
+            &quot;numero&quot;: {
+               &quot;type&quot;: &quot;integer&quot;
+            }
+         }
+      }
+   }
+}'
+</code></pre>
+<p>Para indexar os documentos precisamos enviar os documentos em requisições POST para a <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-index_.html">API de indexação do Elasticsearch</a>. Para esse exemplo, implementei isso usando JavaScript e <em>Node.js</em>. O códido para cada arquivo está aqui <a href="https://github.com/aecio/presentations/blob/master/sample/estadual.js">https://github.com/aecio/presentations/blob/master/sample/estadual.js</a> e aqui <a href="https://github.com/aecio/presentations/blob/master/sample/federal.js">https://github.com/aecio/presentations/blob/master/sample/federal.js</a>. Além da API REST, existem bibliotecas diponíveis para diversas linguagens de programação.</p>
+<h2>Análise exploratória de dados usando agregações</h2>
+<p>Finalmente podemos fazer uma análise exploratória nos dados. Vamos começar com uma pergunta bem simples. <em>Há quantos cadidatos de cada tipo?</em> A seguinte agregação responde essa pergunta:</p>
+<pre><code>curl -XPOST &quot;http://localhost:9200/eleicoes2014/_search&quot; -d'
+{
+   &quot;size&quot;: 0,
+   &quot;aggregations&quot;: {
+      &quot;tipo_de_candidato&quot;: {
+         &quot;terms&quot;: {
+            &quot;field&quot;: &quot;_type&quot;
+         }
+      }
+   }
+}'
+</code></pre>
+<p>Neste exemplo, estamos executando uma agregação que identificamos como <code>tipo_de_candidato</code>. Essa agregação é do tipo <code>terms</code>, que agrupa os documentos em grupos (<em>buckets</em>) para cada termo distinto encontrado. Como parâmetro, informamos que a agregação seja feita usando o campo <code>_type</code>, que é um campo especial presente em todos os documentos indexados e que armazena o tipo do documento. Como nós indexamos somente dois tipos de documentos, são retornados dois buckets contentdo a quantidade de documentos em cada bucket:</p>
+<pre><code>{
+   &quot;took&quot;: 2,
+   &quot;timed_out&quot;: false,
+   &quot;_shards&quot;: {
+      &quot;total&quot;: 5,
+      &quot;successful&quot;: 5,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 1898,
+      &quot;max_score&quot;: 0,
+      &quot;hits&quot;: []
+   },
+   &quot;aggregations&quot;: {
+      &quot;tipo_de_candidato&quot;: {
+         &quot;buckets&quot;: [
+            {
+               &quot;key&quot;: &quot;dep_estadual&quot;,
+               &quot;doc_count&quot;: 1200
+            },
+            {
+               &quot;key&quot;: &quot;dep_federal&quot;,
+               &quot;doc_count&quot;: 698
+            }
+         ]
+      }
+   }
+}
+</code></pre>
+<p>Note que como não especificamos nenhuma <em>query</em> para o Elasticsearch, a agregação operou em todos os documentos indexados (1898 hits). Se quiséssemos fazer uma pergunta mais específica, como por exemplo: <strong>Há quantos cadidatos de cada tipo que se chamam João?</strong> Nesse caso, poderíamos fazer a seguinte agregação:</p>
+<pre><code>curl -XPOST &quot;http://localhost:9200/eleicoes2014/_search?q=nome:joao&quot; -d'
+{
+   &quot;size&quot;: 0,
+   &quot;aggregations&quot;: {
+      &quot;tipo_de_candidato&quot;: {
+         &quot;terms&quot;: {
+            &quot;field&quot;: &quot;_type&quot;
+         }
+      }
+   }
+}'
+</code></pre>
+<p>Note a adição da query <strong>q=nome:joao</strong> no final da URL da requisição. Esta query retorna somente 8 caditados com o termo joao no nome, os quais são agregados em dois buckets:</p>
+<pre><code>{
+   &quot;took&quot;: 12,
+   &quot;timed_out&quot;: false,
+   &quot;_shards&quot;: {
+      &quot;total&quot;: 5,
+      &quot;successful&quot;: 5,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 8,
+      &quot;max_score&quot;: 0,
+      &quot;hits&quot;: []
+   },
+   &quot;aggregations&quot;: {
+      &quot;tipo_de_candidato&quot;: {
+         &quot;buckets&quot;: [
+            {
+               &quot;key&quot;: &quot;dep_estadual&quot;,
+               &quot;doc_count&quot;: 6
+            },
+            {
+               &quot;key&quot;: &quot;dep_federal&quot;,
+               &quot;doc_count&quot;: 2
+            }
+         ]
+      }
+   }
+}
+</code></pre>
+<p>Suponha agora que precisamos de mais detalhes. Para cada tipo de cadidato, precisamos saber:</p>
+<ul>
+<li>Quais as duas coligações que tem mais candidatos?</li>
+<li>Quais os dois partidos que tem mais candidatos?</li>
+<li>Quais os valores minimo, máximo e médio dos números dos cadidatos?</li>
+</ul>
+<p>Podemos reponder todas essas pergutas somente com uma requisição, utilizando agregações aninhadas:</p>
+<pre><code>curl -XPOST &quot;http://localhost:9200/eleicoes2014/_search&quot; -d'
+{
+   &quot;size&quot;: 0,
+   &quot;aggregations&quot;: {
+      &quot;tipo_de_candidato&quot;: {
+         &quot;terms&quot;: {
+            &quot;field&quot;: &quot;_type&quot;
+         },
+         &quot;aggregations&quot;: {
+            &quot;por_partido&quot;: {
+               &quot;terms&quot;: {
+                  &quot;field&quot;: &quot;partido&quot;,
+                  &quot;size&quot;: 2
+               }
+            },
+            &quot;por_coligacao&quot;: {
+               &quot;terms&quot;: {
+                  &quot;field&quot;: &quot;coligacao&quot;,
+                  &quot;size&quot;: 2
+               }
+            },
+            &quot;estatisticas_de_numero&quot;: {
+               &quot;stats&quot;: {
+                  &quot;field&quot;: &quot;numero&quot;
+               }
+            }
+         }
+      }
+   }
+}'
+</code></pre>
+<p>Nessa agregação utilizamos a mesma agregação do primeiro exemplo, com adição de 3 subagregações, uma para cada pergunta. A agregação <code>por_partido</code> fará agregação de termos usando os valores do campo <code>partido</code>, a agregação <code>por_coligacao</code> fará agregação utilizando o campo <code>coligacao</code>, e a agregação <code>estatisticas_de_numero</code>, que é do tipo <code>stats</code>, retornará estatísticas sumarizando os números encontrados no campo número. A reposta para essa agregação pode ser vista a seguir:</p>
+<pre><code>{
+   &quot;took&quot;: 6,
+   &quot;timed_out&quot;: false,
+   &quot;_shards&quot;: {
+      &quot;total&quot;: 5,
+      &quot;successful&quot;: 5,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 1898,
+      &quot;max_score&quot;: 0,
+      &quot;hits&quot;: []
+   },
+   &quot;aggregations&quot;: {
+      &quot;tipo_de_candidato&quot;: {
+         &quot;buckets&quot;: [
+            {
+               &quot;key&quot;: &quot;dep_estadual&quot;,
+               &quot;doc_count&quot;: 1200,
+               &quot;por_coligacao&quot;: {
+                  &quot;buckets&quot;: [
+                     {
+                        &quot;key&quot;: &quot;PRP / PEN / PHS&quot;,
+                        &quot;doc_count&quot;: 133
+                     },
+                     {
+                        &quot;key&quot;: &quot;PT / PROS / PMDB / PRB&quot;,
+                        &quot;doc_count&quot;: 108
+                     }
+                  ]
+               },
+               &quot;por_partido&quot;: {
+                  &quot;buckets&quot;: [
+                     {
+                        &quot;key&quot;: &quot;PT do B&quot;,
+                        &quot;doc_count&quot;: 85
+                     },
+                     {
+                        &quot;key&quot;: &quot;PC do B&quot;,
+                        &quot;doc_count&quot;: 41
+                     }
+                  ]
+               },
+               &quot;estatisticas_de_numero&quot;: {
+                  &quot;count&quot;: 1200,
+                  &quot;min&quot;: 10000,
+                  &quot;max&quot;: 90999,
+                  &quot;avg&quot;: 36122.61666666667,
+                  &quot;sum&quot;: 43347140
+               }
+            },
+            {
+               &quot;key&quot;: &quot;dep_federal&quot;,
+               &quot;doc_count&quot;: 698,
+               &quot;por_coligacao&quot;: {
+                  &quot;buckets&quot;: [
+                     {
+                        &quot;key&quot;: &quot;PTdo B / PRP / PHS / PEN&quot;,
+                        &quot;doc_count&quot;: 81
+                     },
+                     {
+                        &quot;key&quot;: &quot;DEM / PSDB / PP / PR / PSD / SD&quot;,
+                        &quot;doc_count&quot;: 47
+                     }
+                  ]
+               },
+               &quot;por_partido&quot;: {
+                  &quot;buckets&quot;: [
+                     {
+                        &quot;key&quot;: &quot;PT do B&quot;,
+                        &quot;doc_count&quot;: 55
+                     },
+                     {
+                        &quot;key&quot;: &quot;PSB&quot;,
+                        &quot;doc_count&quot;: 37
+                     }
+                  ]
+               },
+               &quot;estatisticas_de_numero&quot;: {
+                  &quot;count&quot;: 698,
+                  &quot;min&quot;: 1000,
+                  &quot;max&quot;: 9090,
+                  &quot;avg&quot;: 3420.3409742120343,
+                  &quot;sum&quot;: 2387398
+               }
+            }
+         ]
+      }
+   }
+}
+</code></pre>
+<h2>Conclusão</h2>
+<p>Neste post vimos como o Elasticsearch pode ser uma ferramenta que vai muito além de busca textual. A nova funcionalidade de agregação de dados permite realização de consultas <em>ad-hoc</em> aos dados, possibilitando a exploração de grande bases de dados com pouco esforço de programação. O tipos de agregações disponíveis no Elasticsearch vão muito além das utilizadas nesse post. Existem agregações por distância geográfica, faixas de IPv4, percentis, histogramas, faixas de data, e etc, que ainda podem ser combinadas com os diversos tipos de queries e filtros disponíveis. Veja lá na <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html">documentação</a> a lista de agregações disponíveis.</p>
+<p>Se alguma coisa tiver ficado muito confusa, deixem as dúvidas nos comentários que vou tentando esclarecer e melhorar o post.</p>
+<p>Até a próxima! 🙂</p>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com/aeciosan">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/aeciosan">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/aecio">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/aeciosantos">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Made with <i class="fa fa-heart" aria-hidden="true"></i> using <a href="https://github.com/aecio/sitegen">aecio/sitegen</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/static/js/jqBootstrapValidation.js"></script>
+    <script src="/static/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/static/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
