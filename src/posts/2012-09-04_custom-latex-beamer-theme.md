@@ -11,7 +11,7 @@ September 4, 2012
 
 # A simple & clean Latex Beamer theme
 
-Beamer is a greate Latex class used to create presentations.
+Beamer is a great Latex class used to create presentations.
 Unfortunately, most default Beamer themes are very bloated and full of
 stuff that waste the usefull space of the slides.
 Looking for simplicity, I created a custom beamer theme that is simple and clean.
