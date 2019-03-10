@@ -1,0 +1,127 @@
+---
+title: Aécio Santos' Publications
+author: Aécio Santos
+permalink: /publications/
+content_type: mustache
+publications:
+  - year: 2019
+    articles:
+      - title: A Topic-Agnostic Approach for Identifying Fake News Pages
+        authors: Sonia Castelo, Thais Almeida, Anas Elghafari, Aécio Santos, Kien Pham, Eduardo Nakamura, and Juliana Freire
+        series: WWW'19 Companion
+        venue: The 2019 Web Conference Companion
+        comments: To be presented at <a href="https://sites.google.com/view/misinfoworkshop">MisinfoWorkshop2019</a> (co-located with WWW'2019).
+      - title: Bootstrapping Domain-Specific Content Discovery on the Web
+        authors: Kien Pham, Aécio Santos, Juliana Freire
+        series: WWW'19
+        venue: Proceedings of The Web Conference 2019
+        arxiv_url: https://arxiv.org/abs/1902.09667v1
+
+  - year: 2018
+    articles:
+      - title: Learning to Discover Domain-Specific Web Content
+        authors: Kien Pham, Aécio Santos, Juliana Freire
+        series: WSDM'18
+        venue: Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining
+        pdf_url: /static/pdfs/wsdmf617-phamA.pdf
+        acmdl_url: https://dl.acm.org/authorize?N658119
+        comments: 16% acceptance rate.
+
+  - year: 2016
+    articles:
+      - title: Understanding Website Behavior based on User Agent
+        authors: Kien Pham, Aécio Santos, Juliana Freire
+        series: SIGIR'16
+        venue: Proceedings of the 39th International ACM SIGIR conference on Research and Development in Information Retrieval
+        acmdl_url: https://dl.acm.org/authorize?N677122
+        code_url: https://github.com/VIDA-NYU/user-agent-study
+        
+      - title: A First Study on Temporal Dynamics of Topics on the Web
+        authors: Aécio Santos, Bruno Pasini, Juliana Freire
+        series: TempWeb'16
+        venue: Proceedings of the 25th International Conference Companion on World Wide Web
+        acmdl_url: https://dl.acm.org/authorize?N658119
+        pdf_url: http://gdac.uqam.ca/WWW2016-Proceedings/companion/p849.pdf
+        comments: Presented at <a href="https://temporalweb.net/page0/page0.html">8<sup>th</sup> Temporal Web Analytics Workshop</a> (co-located with WWW'2016).
+
+      - title: Interactive Exploration for Domain Discovery on the Web
+        authors: Yamuna Krishnamurthy, Kien Pham, Aécio Santos, and Juliana Freire
+        series: IDEA'16
+        venue: KDD 2016 Workshop on Interactive Data Exploration and Analytics
+        pdf_url: http://poloclub.gatech.edu/idea2016/papers/p64-krishnamurthy.pdf
+        code_url: https://github.com/VIDA-NYU/domain_discovery_tool
+
+  - year: 2015
+    articles:
+      - title: A Genetic Programming Framework to Schedule Webpage Updates
+        authors: Aécio S. R. Santos, Cristiano R. Carvalho, Jussara M. Almeida, Edleno S. Moura, Altigran S. Silva, Nivio Ziviani
+        series: IRJ
+        venue: "Information Retrieval: Volume 18 Issue 1"
+        code_url: https://github.com/aecio/gp4c
+        pdf_url: "/static/pdfs/santos@irj2015.pdf"
+        springer_url: https://link.springer.com/article/10.1007/s10791-014-9248-5
+  
+  - year: 2013
+    articles:
+      - title: Learning to Schedule Webpage Updates Using Genetic Programming
+        authors: Aécio S. Santos, Nivio Ziviani, Jussara Almeida, Cristiano R. Carvalho, Edleno Silva Moura, Altigran Soares Silva
+        series: SPIRE 2013
+        venue: Proceedings of the 20th International Symposium on String Processing and Information Retrieval
+        code_url: https://github.com/aecio/gp4c
+        slides_url: https://homepages.dcc.ufmg.br/~nivio/cursos/ri15/transp/spire13.pdf
+        pdf_url: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.710.1620&rep=rep1&type=pdf
+
+---
+<h1>Publications</h1>
+
+{{#page.extra.publications}}
+  <h3 class='publication_year'>{{ year }}</h3>
+  <ul>
+  {{#articles}}
+    <li style="padding: 10px 0px">
+      <b>{{{title}}}</b><br/>
+      {{{authors}}}<br/>
+      <em>{{{series}}}</em>: {{{venue}}}<br/>
+      <small>{{{comments}}}</small>
+      <div style="display:flex">
+        <div class="btn-group-sm">
+          {{#arxiv_url}}
+          <a class="btn btn-default" href="{{ arxiv_url }}" target="_blank">
+            <i class="fa fa-file-pdf-o"></i>
+            arxiv
+          </a>
+          {{/arxiv_url}}
+          {{#pdf_url}}
+          <a class="btn btn-default" href="{{ pdf_url }}" target="_blank">
+            <i class="fa fa-file-pdf-o"></i>
+            PDF
+          </a>
+          {{/pdf_url}}
+          {{#acmdl_url}}
+          <a class="btn btn-default" href="{{ acmdl_url }}" target="_blank">
+            ACM DL
+          </a>
+          {{/acmdl_url}}
+          {{#springer_url}}
+          <a class="btn btn-default" href="{{ springer_url }}" target="_blank">
+            Springer
+          </a>
+          {{/springer_url}}
+          {{#code_url}}
+          <a class="btn btn-default" href="{{ code_url }}" target="_blank">
+            <i class="fa fa-code"></i>
+            Source Code
+          </a>
+          {{/code_url}}
+          {{#slides_url}}
+          <a class="btn btn-default" href="{{ slides_url }}" target="_blank">
+            <i class="fa fa-file-powerpoint-o"></i>
+            Slides
+          </a>
+          {{/slides_url}}
+        </div>
+      </div>
+    </li>
+  {{/articles}}
+  </ul>
+{{/page.extra.publications}}
