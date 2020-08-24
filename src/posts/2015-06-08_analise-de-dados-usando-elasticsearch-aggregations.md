@@ -7,11 +7,10 @@ published_time: 2015-06-08T19:05:18+00:00
 modified_time:  2015-06-09T02:03:58+00:00
 content_type: markdown
 ---
-October 6, 2012
-
 # Análise de dados usando Elasticsearch Aggregations
+*June 8, 2015*
 
-<img class="img-responsive" src="{{site.base_url}}/static/img/elasticsearch.png" alt="Elasticsearch logo">
+<img class="img-fluid" src="{{site.base_url}}/static/img/elasticsearch.png" alt="Elasticsearch logo">
 
 O [Elasticsearch](https://www.elastic.co/products/elasticsearch) é uma ferramenta que surgiu inicialmente com intenção de ser uma máquina de busca distribuída desenvolvida em cima da biblioteca [Apache Lucene](http://lucene.apache.org/). Ao longo do tempo, com a adição de novas features, foram surgindo diferentes casos de uso da ferramenta que vão muito além da busca textual para qual foi inicialmente desenvolvida.
 
@@ -338,6 +337,6 @@ Nessa agregação utilizamos a mesma agregação do primeiro exemplo, com adiç�
 
 Neste post vimos como o Elasticsearch pode ser uma ferramenta que vai muito além de busca textual. A nova funcionalidade de agregação de dados permite realização de consultas *ad-hoc* aos dados, possibilitando a exploração de grande bases de dados com pouco esforço de programação. O tipos de agregações disponíveis no Elasticsearch vão muito além das utilizadas nesse post. Existem agregações por distância geográfica, faixas de IPv4, percentis, histogramas, faixas de data, e etc, que ainda podem ser combinadas com os diversos tipos de queries e filtros disponíveis. Veja lá na [documentação](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html) a lista de agregações disponíveis.
 
-Se alguma coisa tiver ficado muito confusa, deixem as dúvidas nos comentários que vou tentando esclarecer e melhorar o post.
+<!-- Se alguma coisa tiver ficado muito confusa, deixem as dúvidas nos comentários que vou tentando esclarecer e melhorar o post. -->
 
 Até a próxima! 🙂

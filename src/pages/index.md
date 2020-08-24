@@ -1,12 +1,12 @@
 ---
-title: About me
+title: About Me
 author: Aécio Santos
-permalink: about/
+permalink: /
 content_type: markdown
 ---
-# About
+# About Me
 
-Hello, I’m Aécio Santos. I’m currently a Research Associate at
+Hey! I’m Aécio. I currently work as a Research Engineer at
 [New York University – Tandon School of Engineering](http://engineering.nyu.edu/)
 in New York City. Before moving here, I used to work as Software Engineer for a
 Brazilian start-up called [Zunnit Technologies](http://www.zunnit.com/),
@@ -23,10 +23,3 @@ The research topics I’m currently interested are:
 - Machine Learning
 - Data Mining
 - Recommender Systems
-
-You can find me also on:
-
-- [linkedin.com/in/aeciosantos](http://www.linkedin.com/in/aeciosantos)
-- [github.com/aecio](http://www.github.com/aecio)
-- [twitter.com/aeciosan](http://www.twitter.com/aeciosan)
-- [last.fm/user/aeciosan](http://www.last.fm/user/aeciosan)

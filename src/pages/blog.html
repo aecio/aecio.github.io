@@ -1,0 +1,17 @@
+---
+title: Blog
+author: Aécio Santos
+permalink: /blog/
+---
+<h1>Blog: (Not So) Recent Posts</h1>
+
+<div class="post-preview-group">
+    {{#posts}}
+    <div class="post-preview">
+        <a href="{{site.base_url}}{{permalink}}">
+            <h2 class="post-title">{{title}}</h2>
+        </a>
+        <p class="post-meta">Posted by <i>{{author}}</i> on {{publicationDay}}</p>
+    </div>
+    {{/posts}}
+</div>

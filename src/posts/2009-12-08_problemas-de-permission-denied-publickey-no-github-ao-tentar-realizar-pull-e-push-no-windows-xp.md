@@ -5,11 +5,11 @@ permalink: /2009/12/08/problemas-de-permission-denied-publickey-no-github-ao-ten
 #published_time: December 8, 2009
 published_time: 2009-12-08T05:16:36+00:00
 modified_time: 2009-12-08T05:16:36+00:00
-content_type: markdown  
+content_type: markdown
 ---
-December 8, 2009
 
 # Problemas de ‘Permission denied (publickey)’ no github ao tentar realizar pull e push no Windows XP
+*December 8, 2009*
 
 Ontem perdi um bom tempo tentando configurar um projeto no GitHub. Estava ocorrendo uns erros de autenticação (*Permission denied*) ao tentar fazer pull ou push.
 

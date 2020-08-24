@@ -10,7 +10,7 @@ publications:
         authors: Aécio Santos, Sonia Castelo, Cristian Felix, Jorge H. P. Ono, Bowen Yu, Ray Hong, Cláudio Silva, Enrico Bertini, and Juliana Freire
         series: HILDA'19
         venue: Proceedings of the Workshop on Human-In-the-Loop Data Analytics
-        comments: Presented at <a href="https://sites.google.com/view/misinfoworkshop">HILDA 2019</a> (co-located with SIGMOD'2019), in Amsterdam.
+        comments: Presented at <a href="https://hilda.io/2019/">HILDA 2019</a> (co-located with SIGMOD'2019), in Amsterdam.
         acmdl_url: https://dl.acm.org/authorize?N681471
         arxiv_url: https://arxiv.org/abs/1907.02889
       - title: A Topic-Agnostic Approach for Identifying Fake News Pages
@@ -94,37 +94,37 @@ publications:
       <em>{{{series}}}</em>: {{{venue}}}<br/>
       <small>{{{comments}}}</small>
       <div style="display:flex">
-        <div class="btn-group-sm">
+        <div class="btn-group_" role="group" aria-label="Paper download options">
           {{#arxiv_url}}
-          <a class="btn btn-default" href="{{ arxiv_url }}" target="_blank">
+          <a class="btn btn-outline-primary" href="{{ arxiv_url }}" target="_blank">
             <i class="fa fa-file-pdf-o"></i>
-            arxiv
+            Arxiv
           </a>
           {{/arxiv_url}}
           {{#pdf_url}}
-          <a class="btn btn-default" href="{{ pdf_url }}" target="_blank">
+          <a class="btn btn-outline-primary" href="{{ pdf_url }}" target="_blank">
             <i class="fa fa-file-pdf-o"></i>
             PDF
           </a>
           {{/pdf_url}}
           {{#acmdl_url}}
-          <a class="btn btn-default" href="{{ acmdl_url }}" target="_blank">
+          <a class="btn btn-outline-primary" href="{{ acmdl_url }}" target="_blank">
             ACM DL
           </a>
           {{/acmdl_url}}
           {{#springer_url}}
-          <a class="btn btn-default" href="{{ springer_url }}" target="_blank">
+          <a class="btn btn-outline-primary" href="{{ springer_url }}" target="_blank">
             Springer
           </a>
           {{/springer_url}}
           {{#code_url}}
-          <a class="btn btn-default" href="{{ code_url }}" target="_blank">
+          <a class="btn btn-outline-primary" href="{{ code_url }}" target="_blank">
             <i class="fa fa-code"></i>
             Source Code
           </a>
           {{/code_url}}
           {{#slides_url}}
-          <a class="btn btn-default" href="{{ slides_url }}" target="_blank">
+          <a class="btn btn-outline-primary" href="{{ slides_url }}" target="_blank">
             <i class="fa fa-file-powerpoint-o"></i>
             Slides
           </a>

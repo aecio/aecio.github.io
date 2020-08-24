@@ -2,14 +2,13 @@
 title: Using Dolphin/KDE to manage Git repositories (or other VCS)
 author: Aécio Santos
 permalink: /2012/10/06/using-dolphinkde-to-manage-git-repositories-or-other-vcs/
-#published_time: October 6, 2012
 published_time: 2012-10-06T03:29:35+00:00
 modified_time: 2015-11-05T18:47:26+00:00
 content_type: markdown
 ---
-October 6, 2012
 
 # Using Dolphin/KDE to manage Git repositories (or other VCS)
+*October 05, 2012*
 
 Dolphin is the default file manager of
 [KDE Plasma](https://en.wikipedia.org/wiki/KDE). It is very extensible and

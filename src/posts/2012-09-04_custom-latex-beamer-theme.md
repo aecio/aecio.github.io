@@ -7,9 +7,9 @@ published_time: 2012-09-04T04:06:41+00:00
 modified_time: 2016-05-14T20:55:49+00:00
 content_type: markdown
 ---
-September 4, 2012
 
 # A simple & clean Latex Beamer theme
+*September 4, 2012*
 
 Beamer is a great Latex class used to create presentations.
 Unfortunately, most default Beamer themes are very bloated and full of
