@@ -10,7 +10,6 @@ if [ -z "$(git status --porcelain)" ]; then
   git checkout master
   git status
   rm -r ./* &&  mv /tmp/sitegen-tmp-build/* .
-  git status
   git add .
   git status
 else
