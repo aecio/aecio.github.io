@@ -3,6 +3,13 @@ title: Publications
 author: Aécio Santos
 permalink: /publications/
 content_type: mustache
+unpublished:
+  - year: 2021
+    articles:
+      - title: Sublogarithmic Algorithms for Planar Point Location
+        authors: Aécio Santos
+        comments: Technical report
+        pdf_url: "/static/pdfs/sublogarithmic-point-location_report-2021.pdf"
 publications:
   - year: 2021
     articles:
@@ -162,3 +169,28 @@ publications:
   {{/articles}}
   </ul>
 {{/page.extra.publications}}
+
+
+<h1>Unpublished Work</h1>
+{{#page.extra.unpublished}}
+  <h3 class='publication_year'>{{ year }}</h3>
+  <ul>
+  {{#articles}}
+    <li style="padding: 10px 0px">
+      <b>{{{title}}}</b><br/>
+      {{{authors}}}<br/>
+      <small>{{{comments}}}</small>
+      <div style="display:flex">
+        <div class="btn-group_" role="group" aria-label="Paper download options">
+          {{#pdf_url}}
+          <a class="btn btn-outline-primary" href="{{ pdf_url }}" target="_blank">
+            <i class="fa fa-file-pdf-o"></i>
+            PDF
+          </a>
+          {{/pdf_url}}
+        </div>
+      </div>
+    </li>
+  {{/articles}}
+  </ul>
+{{/page.extra.unpublished}}
