@@ -40,6 +40,7 @@ publications:
         series: ICDE'22
         venue: Proceedings of the 2022 IEEE 38th International Conference on Data Engineering (ICDE)
         pdf_url: "/static/pdfs/icde2022-qcr-index.pdf"
+        ieee_url: https://ieeexplore.ieee.org/document/9835690
   - year: 2021
     articles:
       - title: "DSDD: Domain-Specific Dataset Discovery on the Web"
@@ -191,6 +192,12 @@ publications:
             ACM DL
           </a>
           {{/acmdl_url}}
+          {{#ieee_url}}
+          <a class="btn btn-outline-primary" href="{{ ieee_url }}" target="_blank">
+            <i class="fa fa-file-pdf-o"></i>
+            IEEE Xplore
+          </a>
+          {{/ieee_url}}
           {{#springer_url}}
           <a class="btn btn-outline-primary" href="{{ springer_url }}" target="_blank">
             Springer
