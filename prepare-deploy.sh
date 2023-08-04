@@ -16,6 +16,7 @@ if [ -z "$(git status --porcelain)" ]; then
   # deploy site to the static pages branch
   git checkout gh-pages
   git status
+  git pull
   rm -r ./* &&  mv ${SITEGEN_TMP_OUPUT}/* .
   git add .
   git status
