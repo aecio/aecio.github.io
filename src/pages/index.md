@@ -15,9 +15,9 @@ Previously, I worked as a Software Engineer for a Brazilian start-up called [Zun
 
 ##### Education
 
-I'm currently pursuing a Ph.D. in Computer Science at New York University's Tandon School of Engineering. Previously, I received a Master's Degree in Computer Science from the [Federal University of Minas Gerais (UFMG)](http://dcc.ufmg.br/dcc/), and a *B. Tech.* in Analysis and Development of Systems from [Federal Institute of Piauí (IFPI)](http://ifpi.edu.br/).
+In 2024, I received a Ph.D. in Computer Science from New York University's Tandon School of Engineering under supervision of Prof. Juliana Freire. Previously, I received a Master's Degree in Computer Science from the [Federal University of Minas Gerais (UFMG)](http://dcc.ufmg.br/dcc/), and a *Technology Degree* in Analysis and Development of Systems from [Federal Institute of Piauí (IFPI)](http://ifpi.edu.br/).
 
 
 ##### Research Experience
 
-I've had the opportunity to work in several research projects which resulted in various <a href="{{ site.base_url }}/publications">publications</a> in top-tier research venues, which include *VLDB*, *SIGMOD*, *The Web Conference (WWW)*, *SIGIR*, *WSDM*, *CIKM*, *SPIRE*, and *Information Retrieval Journal*. I'm interested in solving complex problems (which usually involve dealing with large amounts of data) that lie in the intersection of research areas such as *Information Retrieval*, *Machine Learning*, *Data Management*, and *Information Visualization*.
+I've had the opportunity to work in several research projects which resulted in various <a href="{{ site.base_url }}/publications">publications</a> in top-tier research venues, which include *VLDB*, *SIGMOD*, *ICDE*, *PODS*, *The Web Conference (WWW)*, *SIGIR*, *WSDM*, *CIKM*, *SPIRE*, and *Information Retrieval Journal*. I'm interested in solving complex problems (which usually involve dealing with large amounts of data) that lie in the intersection of research areas such as *Information Retrieval*, *Machine Learning*, *Data Management*, and *Information Visualization*.
