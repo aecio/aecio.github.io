@@ -15,8 +15,7 @@ Previously, I worked as a Software Engineer for a Brazilian start-up called [Zun
 
 ##### Education
 
-In 2024, I received a Ph.D. in Computer Science from New York University's Tandon School of Engineering under supervision of Prof. Juliana Freire. Previously, I received a Master's Degree in Computer Science from the [Federal University of Minas Gerais (UFMG)](http://dcc.ufmg.br/dcc/), and a *Technology Degree* in Analysis and Development of Systems from [Federal Institute of Piauí (IFPI)](http://ifpi.edu.br/).
-
+I received a Ph.D. in Computer Science from New York University's Tandon School of Engineering, advised by Prof. Juliana Freire. Throughout my Ph.D., I've been fortunate to have been mentored by [Chris Musco](https://www.chrismusco.com/) and [Flip Korn](https://research.google/people/106040/). Previously, I received a Master's Degree in Computer Science from the [Federal University of Minas Gerais (UFMG)](http://dcc.ufmg.br/dcc/), and a *Technology Degree* in Analysis and Development of Systems from [Federal Institute of Piauí (IFPI)](http://ifpi.edu.br/).
 
 ##### Research Experience
 
