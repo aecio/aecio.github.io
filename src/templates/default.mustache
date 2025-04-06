@@ -18,6 +18,9 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{ site.base_url }}/static/css/bootstrap4-nyu-d3m.min.css" rel="stylesheet" />
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
       body {
         /* font-family: Lora, 'Times New Roman', serif; */
@@ -109,6 +112,39 @@
       .main-content {
         min-height: 80vh;
       }
+      .container {
+        max-width: 1240px;
+      }
+      .nav-item {
+        padding-right: .5rem;
+      }
+      .publications ul {
+        list-style-type: none;
+        padding-left: .1em;
+      }
+      .links.a {
+        padding-left: 15em;
+      }
+      .cv ul,
+      .links ul {
+        padding-left: 1em;
+      }
+      .links ul {
+        list-style-type: none;
+        padding-left: .1em;
+      }
+      .black-icon,
+      .research-item .fa,
+      .links .fa,
+      .links .fab {
+        color: #000;
+      }
+      .fa, .fab {
+        font-size: 16px;
+      }
+      .gold-icon {
+        color: gold;
+      }
     </style>
   </head>
 
@@ -136,11 +172,17 @@
               <a class="nav-link" href="{{ site.base_url }}/">About Me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ site.base_url }}/publications">Publications</a>
+              <a class="nav-link" href="{{ site.base_url }}/cv">CV</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ site.base_url }}/blog">Blog</a>
+              <a class="nav-link" href="{{ site.base_url }}/projects">Research</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ site.base_url }}/publications">Publications</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="{{ site.base_url }}/blog">Blog</a>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -188,6 +230,12 @@
                       ></path>
                     </svg>
                     LinkedIn
+                  </a>
+                </div>
+                <div>
+                  <a target="_blank" href="https://bsky.app/profile/aeciosan.bsky.social">
+                    <i class="fab fa-bluesky black-icon"></i>
+                    Bluesky
                   </a>
                 </div>
                 <div>
@@ -261,7 +309,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">{{{page.content}}}</div>
+        <div class="col-lg-9 col-md-9">{{{page.content}}}</div>
       </div>
     </div>
 

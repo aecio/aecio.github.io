@@ -1,0 +1,191 @@
+---
+title: Research Projects
+author: Aécio Santos
+permalink: /projects/
+<!-- content_type: markdown -->
+---
+
+<!-- <body data-new-gr-c-s-check-loaded="14.1229.0" data-gr-ext-installed="" cz-shortcut-listen="true"> -->
+
+
+<h1>Research Projects</h1>
+
+<div class="row">
+    <div class="col-6 mb-2">
+        <div class="card h-100">
+            <div class="card-header">
+                Simplifying Data Integration with AI
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Data integration is an arduous and time-consuming task. To address this, we developed tools to make
+                    integrating complex datasets easier. This includes <a href="https://github.com/VIDA-NYU/bdi-kit"
+                        target="_blank">bdi-kit</a>, a Python library packed with modern
+                    tools for tasks like matching different table schemas and standardizing values. Building on that,
+                    we created <i>Harmonia</i>, an intelligent agent that uses Large Language Models (LLMs) to
+                    automatically
+                    figure out how to combine datasets, working interactively with the user to get the job done right.
+                    This work helps researchers spend less time wrangling data and more time making discoveries, and
+                    it's part of the ARPA-H Biomedical Data Fabric and DARPA ASKEM initiatives.
+                </p>
+                <div class="links">
+                    <strong>Related Links:</strong>
+                    <ul>
+                        <li><a href="https://github.com/VIDA-NYU/bdikit-beaker" target="_blank"><i
+                                    class="fab fa-github"></i> Harmonia GitHub</a></li>
+                        <li><a href="https://github.com/VIDA-NYU/bdi-kit" target="_blank"><i class="fab fa-github"></i>
+                                bdi-kit GitHub</a></li>
+                        <li><a href="https://bdi-kit.readthedocs.io" target="_blank"><i class="fab fa-readme"></i>
+                                bdi-kit Docs</a></li>
+                        <li><a href="https://arxiv.org/abs/2502.07132" target="_blank"><i class="fa fa-file"></i>
+                                Harmonia Vision Paper (preprint)</a></li>
+                        <li><a href="https://arxiv.org/abs/2412.08194" target="_blank"><i class="fa fa-file"></i>
+                                Magneto Paper (preprint)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 mb-2">
+        <div class="card h-100">
+            <div class="card-header">
+                Finding the Right Data for Better Machine Learning
+            </div>
+            <div class="card-body">
+                <p class="card-text">Finding relevant data to improve machine learning models or data analysis can be
+                    tough. To tackle this, we designed and built Auctus, a search engine specifically for datasets.
+                    Unlike typical search tools that just look at metadata, Auctus can find datasets that can be joined
+                    or combined with your existing data, or datasets relevant to specific times and locations. Making
+                    this efficient required developing new, fast algorithms using techniques like sketching and hashing
+                    to quickly find relationships between huge amounts of data. This project was supported by DARPA and
+                    the National Science Foundation (NSF).</p>
+                <div class="links">
+                    <strong>Related Links:</strong>
+                    <ul>
+                        <li><a href="https://auctus.vida-nyu.org/" target="_blank"><i class="fa fa-globe"></i>
+                                auctus.vida-nyu.org</a></li>
+                        <li><a href="https://gitlab.com/ViDA-NYU/auctus/auctus" target="_blank"><i
+                                    class="fab fa-gitlab"></i> Code (GitLab)</a></li>
+                        <li></li><a href="https://arxiv.org/pdf/2102.05716" target="_blank"><i class="fa fa-file"></i>
+                            VLDB'21 Paper (Auctus)</a></li>
+                        <li><a href="/static/pdfs/icde2022-qcr-index.pdf" target="_blank"><i class="fa fa-file"></i>
+                                ICDE'22 Paper (Sketch-based Index)</a></li>
+                        <li><a href="https://arxiv.org/abs/2104.03353" target="_blank"><i class="fa fa-file"></i>
+                                SIGMOD'21 Paper (Correlation Sketches)</a></li>
+                        <!-- <li><a href="https://arxiv.org/abs/2403.15553" target="_blank"><i
+                                    class="fa fa-file"></i> ICDE'24 Paper (Mutual Information)</a></li> -->
+                        <li><i class="fa fa-file"></i> <a href="https://arxiv.org/abs/2502.01050"
+                                target="_blank">LLM-based Dataset Generation (preprint)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 mb-2">
+        <div class="card h-100">
+            <div class="card-header">
+                Efficient Algorithms for Large-Scale Data Analysis
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    A core part of my research focuses on creating algorithms that can handle the massive scale of
+                    modern data efficiently. I've developed and analyzed novel randomized methods (<em>sketching
+                        algorithms</em>) to quickly estimate important relationships within and between datasets.
+                    This includes techniques for finding correlated attributes across different tables, estimating how
+                    much information different attributes share (mutual information), and estimating inner products
+                    using sampling methods like weighted minwise hashing and priority sampling. These algorithms are
+                    crucial for making systems like the Auctus dataset search engine fast and scalable.
+                </p>
+                <div class="links">
+                    <strong>Related Links:</strong>
+                    <ul>
+
+                        <li><a href="https://arxiv.org/abs/2104.03353" target="_blank"><i class="fa fa-file"></i>
+                                SIGMOD'21 (Correlation Sketches)</a></li>
+                        <li><a href="/static/pdfs/icde2022-qcr-index.pdf" target="_blank"><i class="fa fa-file"></i>
+                                ICDE'22 (QCR Index for Data Search)</a></li>
+                        <li><a href="https://arxiv.org/abs/2403.15553" target="_blank"><i class="fa fa-file"></i>
+                                ICDE'24 (TUPSK Sketches for MI)</a></li>
+                        <li><a href="https://arxiv.org/abs/2301.05811" target="_blank"><i class="fa fa-file"></i>
+                                PODS'23 (WMH Sketches for Inner Products)</a></li>
+                        <li><a href="https://arxiv.org/abs/2308.05907" target="_blank"><i class="fa fa-file"></i>
+                                SOSA'24 (Simple Priority Sampling Analysis)</a></li>
+                        <li><a href="https://www.vldb.org/pvldb/vol17/p2185-musco.pdf" target="_blank"><i
+                                    class="fa fa-file"></i> VLDB'24 (Sketching for Inner Products)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 mb-2">
+        <div class="card h-100">
+            <div class="card-header">
+                Making Machine Learning Accessible to Everyone
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Machine learning shouldn't just be for experts. I helped create Visus, an interactive system
+                    designed to empower subject-matter experts—people who know their field but aren't necessarily data
+                    scientists—to build their own ML models without writing any code. The goal was to make model
+                    building faster and more accessible, boosting productivity for everyone involved. Visus was
+                    developed as part of DARPA's Data-Driven Discovery of Models (D3M) program and our work was featured
+                    in Science Magazine.
+                </p>
+                <div class="links">
+                    <strong>Related Links:</strong>
+                    <ul>
+                        <li><a href="http://bit.ly/3sZ1tbN" target="_blank"><i class="fa fa-newspaper"></i> Science
+                                Magazine Feature</a></li>
+                        <li><a href="https://arxiv.org/abs/1907.02889" target="_blank"><i class="fa fa-file"></i>
+                                HILDA@SIGMOD'19 (Visus Paper)</a></li>
+                        <li><a href="https://openreview.net/pdf?id=71eJdMzCCIi" target="_blank"><i
+                                    class="fa fa-file"></i> AutoML '23 (Alpha-AutoML Paper)
+                        <li><a href="https://gitlab.com/ViDA-NYU/d3m/ta3/" target="_blank"><i class="fab fa-gitlab"></i>
+                                Visus Code (GitLab)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 mb-2">
+        <div class="card h-100">
+            <div class="card-header">
+                ACHE: A Smarter Web Crawler for Focused Discovery
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Standard web crawlers collect all kinds of pages, but often you need specific information from
+                    particular
+                    corners of the web. I led the development of ACHE, an open-source web crawler designed to
+                    intelligently focus on specific topics or domains. It was a key technology developed during the
+                    DARPA Memex program, which aimed to improve domain-specific web search and indexing and was notably
+                    used in
+                    efforts against human trafficking. ACHE has been widely adopted since its release, used by various
+                    companies and downloaded thousands of times.
+                </p>
+                <div class="links">
+                    <strong>Related Links:</strong>
+                    <ul>
+                        <li><a href="https://github.com/VIDA-NYU/ache" target="_blank"><i class="fab fa-github"></i>
+                                Code
+                                (GitHub)</a></li>
+                        <li><a href="/static/pdfs/wsdmf617-phamA.pdf" target="_blank"><i class="fa fa-file"></i>
+                                WSDM'18 (Recrawling for Link Discovery)</a></li>
+                        <li><a href="https://arxiv.org/abs/1902.09667v1" target="_blank"><i class="fa fa-file"></i>
+                                WWW'19 (Related-Site Discovery)</a></li>
+                        <li><a href="https://dl.acm.org/doi/pdf/10.1145/2872518.2889291" target="_blank"><i
+                                    class="fa fa-file"></i>
+                                TempWeb '16 (Temporal Web Dynamics)</a></li>
+                        <li><a href="https://dl.acm.org/doi/pdf/10.1145/2911451.2914757" target="_blank"><i
+                                    class="fa fa-file"></i>
+                                SIGIR'16 (Adversarial Web Crawling)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

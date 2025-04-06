@@ -44,13 +44,13 @@ publications:
       
       - title: Enhancing Biomedical Schema Matching with LLM-based Training Data Generation
         authors: Yurong Liu, Aécio Santos, Eduardo H. M. Pena, Roque Lopez, Eden Wu, Juliana Freire
-        series: TRL '24
+        series: TRL'24
         venue: NeurIPS 2024 Third Table Representation Learning Workshop
         pdf_url: https://openreview.net/pdf?id=RMZVUP7NgL
 
       - title: Sampling Methods for Inner Product Sketching
         authors: Majid Daliri, Juliana Freire, Christopher Musco, Aécio Santos, Haoxiang Zhang
-        series: VLDB '24
+        series: VLDB'24
         venue: Proceedings of the VLDB Endowment, Vol. 17, No. 9.
         arxiv_url: https://arxiv.org/abs/2309.16157
         pdf_url: https://www.vldb.org/pvldb/vol17/p2185-musco.pdf
@@ -65,7 +65,7 @@ publications:
 
       - title: Simple Analysis of Priority Sampling
         authors: Majid Daliri, Juliana Freire, Christopher Musco, Aécio Santos, Haoxiang Zhang
-        series: SOSA '24
+        series: SOSA'24
         venue: 2024 Symposium on Simplicity in Algorithms
         arxiv_url: https://arxiv.org/abs/2308.05907
         pdf_url: https://epubs.siam.org/doi/pdf/10.1137/1.9781611977936.21
@@ -75,13 +75,13 @@ publications:
     articles:
       - title: "AlphaD3M: An AutoML Library for Multiple ML Tasks"
         authors: Roque Lopez, Raoni Lourenco, Remi Rampin, Sonia Castelo, Aécio Santos, Jorge Ono, Claudio Silva, Juliana Freire
-        series: AutoML '23
+        series: AutoML'23
         venue: AutoML Conference 2023 (ABCD Track)
         pdf_url: https://openreview.net/pdf?id=71eJdMzCCIi
 
       - title: Weighted Minwise Hashing Beats Linear Sketching for Inner Product Estimation
         authors: Aline Bessa, Majid Daliri, Juliana Freire, Cameron Musco, Christopher Musco, Aécio Santos, Haoxiang Zhang
-        series: PODS '23
+        series: PODS'23
         venue: Proceedings of the 42nd ACM SIGMOD-SIGACT-SIGAI Symposium on Principles of Database Systems
         acmdl_url: https://dl.acm.org/doi/10.1145/3584372.3588679
         arxiv_url: https://arxiv.org/abs/2301.05811
@@ -89,11 +89,11 @@ publications:
 
       - title: Using Pipeline Performance Prediction to Accelerate AutoML Systems
         authors: Haoxiang Zhang, Roque López, Aécio Santos, Jorge Piazentin Ono, Aline Bessa, and Juliana Freire
-        series: DEEM '23
+        series: DEEM'23
         venue: Proceedings of the Seventh Workshop on Data Management for End-to-End Machine Learning
         acmdl_url: https://dl.acm.org/doi/10.1145/3595360.3595856
         pdf_url: "/static/pdfs/deem2023-ml4ml.pdf"
-        comments: 🏆 Received the workshop's Best Paper Award.
+        comments: <i class="fa fa-award gold-icon"></i> Received the workshop's Best Paper Award.
 
   - year: 2022
     articles:
@@ -102,7 +102,7 @@ publications:
         series: NTCIR 16
         venue: Proceedings of the 16th NTCIR Conference on Evaluation of Information Access Technologies
         pdf_url: https://research.nii.ac.jp/ntcir/workshop/OnlineProceedings16/pdf/ntcir/06-NTCIR16-DATA-SilvaL.pdf
-        comments: 🏆 Our solution for the 2022 NTCIR Data Search 2 competition ranked 1st place among all submitted runs.
+        comments: <i class="fa fa-award gold-icon"></i> Our solution for the 2022 NTCIR Data Search 2 competition ranked 1st place among all submitted runs.
 
       - title: A Sketch-based Index for Correlated Dataset Search
         authors: Aécio Santos, Aline Bessa, Christopher Musco, Juliana Freire
@@ -239,6 +239,8 @@ publications:
         pdf_url: https://citeseerx.ist.psu.edu/document?type=pdf&doi=673381883b0ce07d49b5c9c4477d394853141c97
 
 ---
+<div class="publications">
+  
 <h1>Publications</h1>
 
 {{#page.extra.publications}}
@@ -248,41 +250,43 @@ publications:
     <li style="padding: 10px 0px">
       <b>{{{title}}}</b><br/>
       {{{authors}}}<br/>
-      <em>{{{series}}}</em>: {{{venue}}}<br/>
+      <em class="badge badge-secondary">{{{series}}}</em> {{{venue}}}<br/>
       <small>{{{comments}}}</small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           {{#arxiv_url}}
           <a class="btn btn-outline-primary" href="{{ arxiv_url }}" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           {{/arxiv_url}}
           {{#pdf_url}}
           <a class="btn btn-outline-primary" href="{{ pdf_url }}" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           {{/pdf_url}}
           {{#acmdl_url}}
           <a class="btn btn-outline-primary" href="{{ acmdl_url }}" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
           {{/acmdl_url}}
           {{#ieee_url}}
           <a class="btn btn-outline-primary" href="{{ ieee_url }}" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-book-atlas"></i>
             IEEE Xplore
           </a>
           {{/ieee_url}}
           {{#siam_url}}
           <a class="btn btn-outline-primary" href="{{ siam_url }}" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-book-atlas"></i>
             SIAM
           </a>
           {{/siam_url}}
           {{#springer_url}}
           <a class="btn btn-outline-primary" href="{{ springer_url }}" target="_blank">
+            <i class="fa fa-book-atlas"></i>
             Springer
           </a>
           {{/springer_url}}
@@ -294,7 +298,7 @@ publications:
           {{/code_url}}
           {{#slides_url}}
           <a class="btn btn-outline-primary" href="{{ slides_url }}" target="_blank">
-            <i class="fa fa-file-powerpoint-o"></i>
+            <i class="fa fa-file-powerpoint"></i>
             Slides
           </a>
           {{/slides_url}}
@@ -319,7 +323,7 @@ publications:
         <div class="btn-group_" role="group" aria-label="Paper download options">
           {{#pdf_url}}
           <a class="btn btn-outline-primary" href="{{ pdf_url }}" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           {{/pdf_url}}
@@ -329,3 +333,4 @@ publications:
   {{/articles}}
   </ul>
 {{/page.extra.unpublished}}
+</div>
