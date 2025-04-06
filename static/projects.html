@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Aécio Santos</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            line-height: 1.6; 
+            margin: 2em; 
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1, h2 { 
+            color: #333; 
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.3em;
+        }
+        h1 {
+             border-bottom-width: 2px;
+        }
+        .project { 
+            margin-bottom: 2.5em; 
+        }
+        .project h2 { 
+            margin-bottom: 0.5em; 
+            font-size: 1.4em;
+            border-bottom: none; /* Remove border from project titles */
+        }
+        .project p { 
+            margin-top: 0.5em; 
+            margin-bottom: 1em;
+        }
+        .links strong {
+            display: block;
+            margin-bottom: 0.5em;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .links a { 
+            margin-right: 1em; 
+            text-decoration: none;
+            color: #0066cc;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Projects</h1>
+
+    <div class="project">
+        <h2>Harmonia & bdi-kit: LLM-Powered Data Harmonization</h2>
+        <p>
+            Developed <strong>Harmonia</strong>, an agentic system combining Large Language Model (LLM) reasoning, user interaction, and the bdi-kit library to automate data harmonization pipelines[cite: 10, 117, 128]. Also developed <strong>bdi-kit</strong>, a Python library supporting data harmonization tasks (schema matching, value matching, data standardization) using state-of-the-art methods, including LLMs, with a focus on biomedical data[cite: 9, 118, 119, 126]. This research is part of the ARPA-H BDF Toolbox and DARPA ASKEM programs[cite: 125]. Contributed to a novel schema-matching algorithm leveraging LLMs for training data generation and match selection[cite: 127].
+        </p>
+        <div class="links">
+            <strong>Related Links:</strong>
+            <a href="https://github.com/VIDA-NYU/bdikit-beaker" target="_blank">Harmonia GitHub</a>
+            <a href="https://github.com/VIDA-NYU/bdi-kit" target="_blank">bdi-kit GitHub</a>
+            <a href="https://bdi-kit.readthedocs.io" target="_blank">bdi-kit Docs</a>
+            <a href="https://arxiv.org/abs/2502.07132" target="_blank">Harmonia Paper [VLDB'25 Submission]</a>
+            <a href="https://arxiv.org/abs/2412.08194" target="_blank">Magneto Paper [VLDB'25 Submission]</a>
+        </div>
+    </div>
+
+    <div class="project">
+        <h2>Auctus: Dataset Search Engine</h2>
+        <p>
+            Designed and developed <strong>Auctus</strong>, a dataset search engine focused on data discovery and augmentation for analytics and machine learning[cite: 8, 104, 133]. Auctus indexes thousands of public datasets from various sources and supports advanced queries, including finding datasets related to a user's data via joins or unions, and spatio-temporal searches[cite: 121, 133]. Developed novel, efficient sketch-based algorithms and indexes for searching datasets based on attribute correlations and estimating mutual information across tables[cite: 135, 69, 77, 79]. This work was part of the DARPA D3M and NSF programs[cite: 141, 129].
+        </p>
+        <div class="links">
+             <strong>Related Links:</strong>
+            <a href="https://gitlab.com/ViDA-NYU/auctus/auctus" target="_blank">Auctus GitLab</a>
+            <a href="https://auctus.vida-nyu.org/" target="_blank">Auctus Online System</a>
+            <a href="https://arxiv.org/pdf/2102.05716" target="_blank">Auctus VLDB'21 Demo Paper</a>
+            <a href="https://ieeexplore.ieee.org/document/9835267" target="_blank">ICDE'22 Paper (Sketch-based Index)</a> 
+            <a href="https://dl.acm.org/doi/10.1145/3448016.3457316" target="_blank">SIGMOD'21 Paper (Correlation Sketches)</a>
+            <a href="https://ieeexplore.ieee.org/abstract/document/10579786" target="_blank">ICDE'24 Paper (Mutual Information)</a> 
+        </div>
+    </div>
+
+    <div class="project">
+        <h2>Visus: Interactive AutoML System</h2>
+        <p>
+            Developed <strong>Visus</strong>, an interactive system for Automated Machine Learning (AutoML) model building and curation[cite: 7, 93]. Visus was designed to enable subject-matter experts (SMEs) with limited data science background to create empirical models without coding, thereby automating model discovery and enhancing productivity[cite: 138, 139]. This system was developed under DARPA's Data-Driven Discovery of Models (D3M) program [cite: 122, 138] and was featured in Science Magazine[cite: 140].
+        </p>
+         <div class="links">
+            <strong>Related Links:</strong>
+            <a href="https://gitlab.com/ViDA-NYU/d3m/ta3/" target="_blank">Visus GitLab</a>
+            <a href="http://bit.ly/3sZ1tbN" target="_blank">Science Magazine Feature [Link from CV]</a>
+            <a href="https://dl.acm.org/doi/10.1145/3328900.3329027" target="_blank">HILDA@SIGMOD'19 Paper</a>
+         </div>
+    </div>
+
+     <div class="project">
+        <h2>ACHE: Domain-Specific Web Crawler</h2>
+        <p>
+            Led the development of <strong>ACHE</strong>, an open-source focused web crawler designed for efficient domain-specific content discovery[cite: 11, 123, 150]. Developed as part of DARPA's Memex program, which focused on advancing search capabilities, notably used in efforts to combat human trafficking[cite: 148, 149]. ACHE has achieved significant adoption, evidenced by 430+ GitHub stars and 100K+ Docker Hub downloads, and is used in production by several companies[cite: 153]. Research stemming from this work was published in venues like WSDM and WWW[cite: 152, 81, 83, 98].
+        </p>
+        <div class="links">
+            <strong>Related Links:</strong>
+            <a href="https://github.com/VIDA-NYU/ache" target="_blank">ACHE GitHub</a>
+            <a href="https://dl.acm.org/doi/10.1145/3159652.3159695" target="_blank">WSDM'18 Paper</a>
+            <a href="https://dl.acm.org/doi/10.1145/3308558.3313691" target="_blank">WWW'19 Paper</a>
+        </div>
+    </div>
+
+     <div class="project">
+        <h2>Dataset Relationship Discovery & Sketching Algorithms</h2>
+        <p>
+             Developed and analyzed novel randomized algorithms (sketches) for efficiently estimating data correlations and relationships at scale[cite: 135]. This includes methods for join-correlation queries[cite: 79], inner product estimation using weighted minwise hashing[cite: 75, 68], estimating mutual information across tables[cite: 69], and analysis of priority sampling[cite: 71]. These techniques formed the algorithmic backbone for enabling efficient correlated dataset search in systems like Auctus[cite: 77, 135].
+        </p>
+        <div class="links">
+            <strong>Related Links:</strong>
+            <a href="https://dl.acm.org/doi/10.1145/3589785" target="_blank">PODS'23 Paper (Weighted Minwise Hashing)</a>
+            <a href="https://dl.acm.org/doi/10.1137/1.9781611977925.7" target="_blank">SOSA'24 Paper (Priority Sampling Analysis)</a>
+            <a href="https://www.vldb.org/pvldb/vol17/p2185-musco.pdf" target="_blank">VLDB'24 Paper (Inner Product Sketching)</a>
+        </div>
+    </div>
+
+</body>
+</html>

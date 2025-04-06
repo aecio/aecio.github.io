@@ -18,6 +18,9 @@
     <!-- Bootstrap Core CSS -->
     <link href="/static/css/bootstrap4-nyu-d3m.min.css" rel="stylesheet" />
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
       body {
         /* font-family: Lora, 'Times New Roman', serif; */
@@ -109,6 +112,39 @@
       .main-content {
         min-height: 80vh;
       }
+      .container {
+        max-width: 1240px;
+      }
+      .nav-item {
+        padding-right: .5rem;
+      }
+      .publications ul {
+        list-style-type: none;
+        padding-left: .1em;
+      }
+      .links.a {
+        padding-left: 15em;
+      }
+      .cv ul,
+      .links ul {
+        padding-left: 1em;
+      }
+      .links ul {
+        list-style-type: none;
+        padding-left: .1em;
+      }
+      .black-icon,
+      .research-item .fa,
+      .links .fa,
+      .links .fab {
+        color: #000;
+      }
+      .fa, .fab {
+        font-size: 16px;
+      }
+      .gold-icon {
+        color: gold;
+      }
     </style>
   </head>
 
@@ -136,11 +172,17 @@
               <a class="nav-link" href="/">About Me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/publications">Publications</a>
+              <a class="nav-link" href="/cv">CV</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/blog">Blog</a>
+              <a class="nav-link" href="/projects">Research</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/publications">Publications</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="/blog">Blog</a>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -188,6 +230,12 @@
                       ></path>
                     </svg>
                     LinkedIn
+                  </a>
+                </div>
+                <div>
+                  <a target="_blank" href="https://bsky.app/profile/aeciosan.bsky.social">
+                    <i class="fab fa-bluesky black-icon"></i>
+                    Bluesky
                   </a>
                 </div>
                 <div>
@@ -261,19 +309,21 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><h1>Publications</h1>
+        <div class="col-lg-9 col-md-9"><div class="publications">
+  
+<h1>Publications</h1>
 
   <h3 class='publication_year'>2025</h3>
   <ul>
     <li style="padding: 10px 0px">
       <b>Large Language Models for Data Discovery and Integration: Challenges and Opportunities</b><br/>
       Juliana Freire, Grace Fan, Benjamin Feuer, Christos Koutras, Yurong Liu, Eduardo Pena, Aécio Santos, Claudio Silva, Eden Wu<br/>
-      <em>DEB</em>: Bulletin of the Technical Committee on Data Engineering, IEEE Computer Society<br/>
+      <em class="badge badge-secondary">DEB</em> Bulletin of the Technical Committee on Data Engineering, IEEE Computer Society<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="http://sites.computer.org/debull/A25mar/p3.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
         </div>
@@ -282,16 +332,16 @@
     <li style="padding: 10px 0px">
       <b>Interactive Data Harmonization with LLM Agents</b><br/>
       Aécio Santos, Eduardo H. M. Pena, Roque Lopez, Juliana Freire<br/>
-      <em>ArXiv</em>: 2502.07132<br/>
+      <em class="badge badge-secondary">ArXiv</em> 2502.07132<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2502.07132" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2502.07132" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
         </div>
@@ -300,16 +350,16 @@
     <li style="padding: 10px 0px">
       <b>AutoDDG: Automated Dataset Description Generation using Large Language Models</b><br/>
       Haoxiang Zhang, Yurong Liu, Wei-Lun (Allen) Hung, Aécio Santos, Juliana Freire<br/>
-      <em>ArXiv</em>: 2502.0105<br/>
+      <em class="badge badge-secondary">ArXiv</em> 2502.0105<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2502.01050" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2502.01050" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
         </div>
@@ -321,16 +371,16 @@
     <li style="padding: 10px 0px">
       <b>Magneto: Combining Small and Large Language Models for Schema Matching</b><br/>
       Yurong Liu, Eduardo Pena, Aécio Santos, Eden Wu, Juliana Freire<br/>
-      <em>ArXiv</em>: 2412.08194<br/>
+      <em class="badge badge-secondary">ArXiv</em> 2412.08194<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2412.08194" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2412.08194" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
         </div>
@@ -339,12 +389,12 @@
     <li style="padding: 10px 0px">
       <b>Enhancing Biomedical Schema Matching with LLM-based Training Data Generation</b><br/>
       Yurong Liu, Aécio Santos, Eduardo H. M. Pena, Roque Lopez, Eden Wu, Juliana Freire<br/>
-      <em>TRL '24</em>: NeurIPS 2024 Third Table Representation Learning Workshop<br/>
+      <em class="badge badge-secondary">TRL'24</em> NeurIPS 2024 Third Table Representation Learning Workshop<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://openreview.net/pdf?id&#61;RMZVUP7NgL" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
         </div>
@@ -353,16 +403,16 @@
     <li style="padding: 10px 0px">
       <b>Sampling Methods for Inner Product Sketching</b><br/>
       Majid Daliri, Juliana Freire, Christopher Musco, Aécio Santos, Haoxiang Zhang<br/>
-      <em>VLDB '24</em>: Proceedings of the VLDB Endowment, Vol. 17, No. 9.<br/>
+      <em class="badge badge-secondary">VLDB'24</em> Proceedings of the VLDB Endowment, Vol. 17, No. 9.<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2309.16157" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://www.vldb.org/pvldb/vol17/p2185-musco.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
         </div>
@@ -371,20 +421,20 @@
     <li style="padding: 10px 0px">
       <b>Efficiently Estimating Mutual Information Between Attributes Across Tables</b><br/>
       Aécio Santos, Flip Korn, Juliana Freire<br/>
-      <em>ICDE'24</em>: 2024 IEEE 40th International Conference on Data Engineering (ICDE)<br/>
+      <em class="badge badge-secondary">ICDE'24</em> 2024 IEEE 40th International Conference on Data Engineering (ICDE)<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2403.15553" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2403.15553.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://ieeexplore.ieee.org/document/10597858" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-book-atlas"></i>
             IEEE Xplore
           </a>
         </div>
@@ -393,20 +443,20 @@
     <li style="padding: 10px 0px">
       <b>Simple Analysis of Priority Sampling</b><br/>
       Majid Daliri, Juliana Freire, Christopher Musco, Aécio Santos, Haoxiang Zhang<br/>
-      <em>SOSA '24</em>: 2024 Symposium on Simplicity in Algorithms<br/>
+      <em class="badge badge-secondary">SOSA'24</em> 2024 Symposium on Simplicity in Algorithms<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2308.05907" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://epubs.siam.org/doi/pdf/10.1137/1.9781611977936.21" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://epubs.siam.org/doi/10.1137/1.9781611977936.21" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-book-atlas"></i>
             SIAM
           </a>
         </div>
@@ -418,12 +468,12 @@
     <li style="padding: 10px 0px">
       <b>AlphaD3M: An AutoML Library for Multiple ML Tasks</b><br/>
       Roque Lopez, Raoni Lourenco, Remi Rampin, Sonia Castelo, Aécio Santos, Jorge Ono, Claudio Silva, Juliana Freire<br/>
-      <em>AutoML '23</em>: AutoML Conference 2023 (ABCD Track)<br/>
+      <em class="badge badge-secondary">AutoML'23</em> AutoML Conference 2023 (ABCD Track)<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://openreview.net/pdf?id&#61;71eJdMzCCIi" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
         </div>
@@ -432,19 +482,20 @@
     <li style="padding: 10px 0px">
       <b>Weighted Minwise Hashing Beats Linear Sketching for Inner Product Estimation</b><br/>
       Aline Bessa, Majid Daliri, Juliana Freire, Cameron Musco, Christopher Musco, Aécio Santos, Haoxiang Zhang<br/>
-      <em>PODS '23</em>: Proceedings of the 42nd ACM SIGMOD-SIGACT-SIGAI Symposium on Principles of Database Systems<br/>
+      <em class="badge badge-secondary">PODS'23</em> Proceedings of the 42nd ACM SIGMOD-SIGACT-SIGAI Symposium on Principles of Database Systems<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2301.05811" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2301.05811.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3584372.3588679" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
         </div>
@@ -453,15 +504,16 @@
     <li style="padding: 10px 0px">
       <b>Using Pipeline Performance Prediction to Accelerate AutoML Systems</b><br/>
       Haoxiang Zhang, Roque López, Aécio Santos, Jorge Piazentin Ono, Aline Bessa, and Juliana Freire<br/>
-      <em>DEEM '23</em>: Proceedings of the Seventh Workshop on Data Management for End-to-End Machine Learning<br/>
-      <small>🏆 Received the workshop's Best Paper Award.</small>
-      <div style="display:flex">
+      <em class="badge badge-secondary">DEEM'23</em> Proceedings of the Seventh Workshop on Data Management for End-to-End Machine Learning<br/>
+      <small><i class="fa fa-award gold-icon"></i> Received the workshop's Best Paper Award.</small>
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="/static/pdfs/deem2023-ml4ml.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3595360.3595856" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
         </div>
@@ -473,12 +525,12 @@
     <li style="padding: 10px 0px">
       <b>NYUCIN at the NTCIR-16 Dataset Search 2 Task</b><br/>
       Levy Silva, Luciano Barbosa, Sonia Castelo, Haoxiang Zhang, Aécio Santos, Juliana Freire<br/>
-      <em>NTCIR 16</em>: Proceedings of the 16th NTCIR Conference on Evaluation of Information Access Technologies<br/>
-      <small>🏆 Our solution for the 2022 NTCIR Data Search 2 competition ranked 1st place among all submitted runs.</small>
-      <div style="display:flex">
+      <em class="badge badge-secondary">NTCIR 16</em> Proceedings of the 16th NTCIR Conference on Evaluation of Information Access Technologies<br/>
+      <small><i class="fa fa-award gold-icon"></i> Our solution for the 2022 NTCIR Data Search 2 competition ranked 1st place among all submitted runs.</small>
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://research.nii.ac.jp/ntcir/workshop/OnlineProceedings16/pdf/ntcir/06-NTCIR16-DATA-SilvaL.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
         </div>
@@ -487,16 +539,16 @@
     <li style="padding: 10px 0px">
       <b>A Sketch-based Index for Correlated Dataset Search</b><br/>
       Aécio Santos, Aline Bessa, Christopher Musco, Juliana Freire<br/>
-      <em>ICDE'22</em>: Proceedings of the 2022 IEEE 38th International Conference on Data Engineering (ICDE)<br/>
+      <em class="badge badge-secondary">ICDE'22</em> Proceedings of the 2022 IEEE 38th International Conference on Data Engineering (ICDE)<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="/static/pdfs/icde2022-qcr-index.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://ieeexplore.ieee.org/document/9835690" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-book-atlas"></i>
             IEEE Xplore
           </a>
         </div>
@@ -508,15 +560,16 @@
     <li style="padding: 10px 0px">
       <b>DSDD: Domain-Specific Dataset Discovery on the Web</b><br/>
       Haoxiang Zhang, Aécio Santos, Juliana Freire<br/>
-      <em>CIKM'21</em>: Proceedings of the 30th ACM International Conference on Information & Knowledge Management<br/>
+      <em class="badge badge-secondary">CIKM'21</em> Proceedings of the 30th ACM International Conference on Information & Knowledge Management<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="/static/pdfs/dsdd-cikm2021.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3459637.3482427" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
         </div>
@@ -525,16 +578,16 @@
     <li style="padding: 10px 0px">
       <b>Auctus: A Dataset Search Engine for Data Discovery and Augmentation</b><br/>
       Sonia Castelo, Rémi Rampin, Aécio Santos, Aline Bessa, Fernando Chirigati, Juliana Freire<br/>
-      <em>PVLDB'21</em>: Proceedings of the VLDB Endowment: Volume 14, Issue 12<br/>
+      <em class="badge badge-secondary">PVLDB'21</em> Proceedings of the VLDB Endowment: Volume 14, Issue 12<br/>
       <small>Demonstration at the VLDB 2021 conference.</small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2102.05716" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="http://vldb.org/pvldb/vol14/p2791-castelo.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
         </div>
@@ -543,19 +596,20 @@
     <li style="padding: 10px 0px">
       <b>Correlation Sketches for Approximate Join-Correlation Queries</b><br/>
       Aécio Santos, Aline Bessa, Fernando Chirigati, Christopher Musco, Juliana Freire<br/>
-      <em>SIGMOD'21</em>: Proceedings of the 2021 International Conference on Management of Data<br/>
+      <em class="badge badge-secondary">SIGMOD'21</em> Proceedings of the 2021 International Conference on Management of Data<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2104.03353" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2104.03353.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3448016.3458456?cid&#61;99658620176" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
         </div>
@@ -564,15 +618,16 @@
     <li style="padding: 10px 0px">
       <b>An Ecosystem of Tools for Modeling Political Violence</b><br/>
       Aline Bessa, Sonia Castelo, Rémi Rampin, Aécio Santos, Mike Shoemate, Vito D'Orazio, Juliana Freire<br/>
-      <em>SIGMOD'21</em>: Proceedings of the 2021 International Conference on Management of Data<br/>
+      <em class="badge badge-secondary">SIGMOD'21</em> Proceedings of the 2021 International Conference on Management of Data<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="/static/pdfs/bessa@sigmod2021.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3448016.3457235?cid&#61;99658620176" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
         </div>
@@ -584,16 +639,16 @@
     <li style="padding: 10px 0px">
       <b>Towards Evaluating Exploratory Model Building Process with AutoML Systems</b><br/>
       Sunsoo (Ray) Hong, Sonia Castelo, Vito D’Orazio, Christopher Benthune, AécioSantos, Scott Langevin, David Jonker, Enrico Bertini, and Juliana Freire<br/>
-      <em>ArXiv</em>: 2009.00449<br/>
+      <em class="badge badge-secondary">ArXiv</em> 2009.00449<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2009.00449" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2009.00449.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
         </div>
@@ -605,15 +660,16 @@
     <li style="padding: 10px 0px">
       <b>Visus: An Interactive System for Automatic Machine Learning Model Building and Curation</b><br/>
       Aécio Santos, Sonia Castelo, Cristian Felix, Jorge H. P. Ono, Bowen Yu, Ray Hong, Cláudio Silva, Enrico Bertini, and Juliana Freire<br/>
-      <em>HILDA'19</em>: Proceedings of the Workshop on Human-In-the-Loop Data Analytics<br/>
+      <em class="badge badge-secondary">HILDA'19</em> Proceedings of the Workshop on Human-In-the-Loop Data Analytics<br/>
       <small>Presented at <a href="https://hilda.io/2019/">HILDA 2019</a> (co-located with SIGMOD'2019), in Amsterdam.</small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/1907.02889" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3328519.3329134?cid&#61;99658620176" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
         </div>
@@ -622,15 +678,16 @@
     <li style="padding: 10px 0px">
       <b>A Topic-Agnostic Approach for Identifying Fake News Pages</b><br/>
       Sonia Castelo, Thais Almeida, Anas Elghafari, Aécio Santos, Kien Pham, Eduardo Nakamura, and Juliana Freire<br/>
-      <em>WWW'19 Companion</em>: The 2019 Web Conference Companion<br/>
+      <em class="badge badge-secondary">WWW'19 Companion</em> The 2019 Web Conference Companion<br/>
       <small>Presented at <a href="https://sites.google.com/view/misinfoworkshop">MisinfoWorkshop2019</a> (co-located with WWW'2019).</small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/1905.00957" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3308560.3316739?cid&#61;99658620176" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
         </div>
@@ -639,15 +696,16 @@
     <li style="padding: 10px 0px">
       <b>Bootstrapping Domain-Specific Content Discovery on the Web</b><br/>
       Kien Pham, Aécio Santos, Juliana Freire<br/>
-      <em>WWW'19</em>: Proceedings of The Web Conference 2019<br/>
+      <em class="badge badge-secondary">WWW'19</em> Proceedings of The Web Conference 2019<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/1902.09667v1" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3308558.3313709?cid&#61;99658620176" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
         </div>
@@ -659,15 +717,16 @@
     <li style="padding: 10px 0px">
       <b>Learning to Discover Domain-Specific Web Content</b><br/>
       Kien Pham, Aécio Santos, Juliana Freire<br/>
-      <em>WSDM'18</em>: Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining<br/>
+      <em class="badge badge-secondary">WSDM'18</em> Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining<br/>
       <small>16% acceptance rate.</small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="/static/pdfs/wsdmf617-phamA.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3159652.3159724?cid&#61;99658620176" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
         </div>
@@ -679,15 +738,16 @@
     <li style="padding: 10px 0px">
       <b>Understanding Website Behavior based on User Agent</b><br/>
       Kien Pham, Aécio Santos, Juliana Freire<br/>
-      <em>SIGIR'16</em>: Proceedings of the 39th International ACM SIGIR conference on Research and Development in Information Retrieval<br/>
+      <em class="badge badge-secondary">SIGIR'16</em> Proceedings of the 39th International ACM SIGIR conference on Research and Development in Information Retrieval<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="/static/pdfs/pham@sigir2016.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/2911451.2914757?cid&#61;99658620176" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
           <a class="btn btn-outline-primary" href="https://github.com/VIDA-NYU/user-agent-study" target="_blank">
@@ -700,15 +760,16 @@
     <li style="padding: 10px 0px">
       <b>A First Study on Temporal Dynamics of Topics on the Web</b><br/>
       Aécio Santos, Bruno Pasini, Juliana Freire<br/>
-      <em>TempWeb'16</em>: Proceedings of the 25th International Conference Companion on World Wide Web<br/>
+      <em class="badge badge-secondary">TempWeb'16</em> Proceedings of the 25th International Conference Companion on World Wide Web<br/>
       <small>Presented at <a href="https://temporalweb.net/page0/page0.html">8<sup>th</sup> Temporal Web Analytics Workshop</a> (co-located with WWW'2016).</small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="http://gdac.uqam.ca/WWW2016-Proceedings/companion/p849.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/authorize?N658119" target="_blank" referrerpolicy="no-referrer-when-downgrade">
+            <i class="fa fa-book-atlas"></i>
             ACM DL
           </a>
         </div>
@@ -717,12 +778,12 @@
     <li style="padding: 10px 0px">
       <b>Interactive Exploration for Domain Discovery on the Web</b><br/>
       Yamuna Krishnamurthy, Kien Pham, Aécio Santos, and Juliana Freire<br/>
-      <em>IDEA'16</em>: KDD 2016 Workshop on Interactive Data Exploration and Analytics<br/>
+      <em class="badge badge-secondary">IDEA'16</em> KDD 2016 Workshop on Interactive Data Exploration and Analytics<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="/static/pdfs/idea2016-ddt.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://github.com/VIDA-NYU/domain_discovery_tool" target="_blank">
@@ -738,15 +799,16 @@
     <li style="padding: 10px 0px">
       <b>A Genetic Programming Framework to Schedule Webpage Updates</b><br/>
       Aécio S. R. Santos, Cristiano R. Carvalho, Jussara M. Almeida, Edleno S. Moura, Altigran S. Silva, Nivio Ziviani<br/>
-      <em>IRJ</em>: Information Retrieval: Volume 18 Issue 1<br/>
+      <em class="badge badge-secondary">IRJ</em> Information Retrieval: Volume 18 Issue 1<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="/static/pdfs/santos@irj2015.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://link.springer.com/article/10.1007/s10791-014-9248-5" target="_blank">
+            <i class="fa fa-book-atlas"></i>
             Springer
           </a>
           <a class="btn btn-outline-primary" href="https://github.com/aecio/gp4c" target="_blank">
@@ -762,12 +824,12 @@
     <li style="padding: 10px 0px">
       <b>Learning to Schedule Webpage Updates Using Genetic Programming</b><br/>
       Aécio S. Santos, Nivio Ziviani, Jussara Almeida, Cristiano R. Carvalho, Edleno Silva Moura, Altigran Soares Silva<br/>
-      <em>SPIRE 2013</em>: Proceedings of the 20th International Symposium on String Processing and Information Retrieval<br/>
+      <em class="badge badge-secondary">SPIRE 2013</em> Proceedings of the 20th International Symposium on String Processing and Information Retrieval<br/>
       <small></small>
-      <div style="display:flex">
+      <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://citeseerx.ist.psu.edu/document?type&#61;pdf&amp;doi&#61;673381883b0ce07d49b5c9c4477d394853141c97" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
           <a class="btn btn-outline-primary" href="https://github.com/aecio/gp4c" target="_blank">
@@ -775,7 +837,7 @@
             Source Code
           </a>
           <a class="btn btn-outline-primary" href="https://homepages.dcc.ufmg.br/~nivio/cursos/ri15/transp/spire13.pdf" target="_blank">
-            <i class="fa fa-file-powerpoint-o"></i>
+            <i class="fa fa-file-powerpoint"></i>
             Slides
           </a>
         </div>
@@ -794,13 +856,14 @@
       <div style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="/static/pdfs/sublogarithmic-point-location_report-2021.pdf" target="_blank">
-            <i class="fa fa-file-pdf-o"></i>
+            <i class="fa fa-file-pdf"></i>
             PDF
           </a>
         </div>
       </div>
     </li>
   </ul>
+</div>
 </div>
       </div>
     </div>
