@@ -240,11 +240,24 @@ publications:
 
 ---
 <div class="publications">
-  
-<h1>Publications</h1>
 
+<h1>Publications</h1>
+<div id="search-box">
+  <input type="text" autofocus id="search-input" placeholder="Search publications..." style="width: 100%; padding: 7px;">
+</div>
+
+<div id="search-area" style="display: none;">
+  <span id="search-result-message" class="mt-2" style="font-size: 0.8em; color: #888;"></span>
+  <!-- <h3>Search Results</h3> -->
+  <ul id="search-results">
+    <!-- Filled with search results -->
+  </ul>
+</div>
+
+<div id="all-publications" style="display: block;" class="mt-3">
+  <!-- <h3>Peer Reviewed</h3> -->
 {{#page.extra.publications}}
-  <h3 class='publication_year'>{{ year }}</h3>
+  <h4 class='publication_year'>{{ year }}</h4>
   <ul>
   {{#articles}}
     <li style="padding: 10px 0px">
@@ -309,10 +322,9 @@ publications:
   </ul>
 {{/page.extra.publications}}
 
-
-<h1>Unpublished Work</h1>
+<h3>Unpublished Work</h3>
 {{#page.extra.unpublished}}
-  <h3 class='publication_year'>{{ year }}</h3>
+  <h4 class='publication_year'>{{ year }}</h4>
   <ul>
   {{#articles}}
     <li style="padding: 10px 0px">
@@ -333,4 +345,174 @@ publications:
   {{/articles}}
   </ul>
 {{/page.extra.unpublished}}
+
 </div>
+
+</div>
+
+<!-- Add Fuse.js search functionality -->
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+<script>
+
+  function htmlDecode(input) {
+    var doc = new DOMParser().parseFromString(input, "text/html");
+    return doc.documentElement.textContent;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Collect publication data
+    const publications = [
+      {{#page.extra.publications}}
+        {{#articles}}
+          {
+            title: "{{{title}}}",
+            authors: "{{{authors}}}",
+            series: "{{{series}}}",
+            venue: "{{{venue}}}",
+            comments: "{{comments}}",
+            arxiv_url: "{{{arxiv_url}}}",
+            pdf_url: "{{{pdf_url}}}",
+            acmdl_url: "{{{acmdl_url}}}",
+            ieee_url: "{{{ieee_url}}}",
+            siam_url: "{{{siam_url}}}",
+            springer_url: "{{{springer_url}}}",
+            code_url: "{{{code_url}}}",
+            slides_url: "{{{slides_url}}}",
+          },
+        {{/articles}}
+      {{/page.extra.publications}}
+    ];
+
+    // Initialize Fuse.js
+    const fuse = new Fuse(publications, {
+      keys: ['title', 'authors', 'series', 'venue', 'comments'],
+        ignoreLocation: true,
+        // isCaseSensitive: false,
+        // threshold: 0.25,
+        // distance: 100,
+        // location: 0,
+    });
+
+    // Handle search input
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const searchArea = document.getElementById('search-area');
+    const allPublications = document.getElementById('all-publications');
+
+      
+    function runSearch() {
+      const query = searchInput.value;
+      if (query.length === 0) {
+        searchResults.innerHTML = '';
+        allPublications.style.display = 'block';
+        searchArea.style.display = 'none';
+        return;
+      } else {
+        allPublications.style.display = 'none';
+        searchArea.style.display = 'block';
+      }
+
+      // Perform search
+      const results = fuse.search(query);
+
+      // Clear previous results
+      searchResults.innerHTML = '';
+      
+      // Display result message based on results
+      const message = document.getElementById('search-result-message')
+      if (results.length === 0) {
+        message.innerText = `No results found for "${query}".`;
+      } else if (results.length === 1) {
+        message.innerText = `Found ${results.length} result for "${query}".`;
+      } else {
+        message.innerText = `Found ${results.length} results for "${query}".`;
+      }
+
+      // Display new search results
+      results.forEach(result => {
+        const item = document.createElement('li');
+
+        var links = '';
+        if (result.item.arxiv_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="{{ arxiv_url }}" target="_blank">
+              <i class="fa fa-file-pdf"></i> Arxiv
+            </a>
+          `;
+        }
+        if (result.item.pdf_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="{{ pdf_url }}" target="_blank">
+              <i class="fa fa-file-pdf"></i> PDF
+            </a>
+          `;
+        }
+        if (result.item.acmdl_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="{{ acmdl_url }}" target="_blank">
+              <i class="fa fa-book-atlas"></i> ACM DL
+            </a>
+          `;
+        }
+        if (result.item.ieee_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="{{ ieee_url }}" target="_blank">
+              <i class="fa fa-book-atlas"></i> IEEE Xplore
+            </a>
+          `;
+        }
+        if (result.item.siam_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="{{ siam_url }}" target="_blank">
+              <i class="fa fa-book-atlas"></i> SIAM
+            </a>
+          `;
+        }
+        if (result.item.springer_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="{{ springer_url }}" target="_blank">
+              <i class="fa fa-book-atlas"></i> Springer
+            </a>
+          `;
+        }
+        if (result.item.code_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="{{ code_url }}" target="_blank">
+              <i class="fa fa-code"></i> Source Code
+            </a>
+          `;
+        }
+        if (result.item.slides_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="{{ slides_url }}" target="_blank">
+              <i class="fa fa-file-powerpoint"></i> Slides
+            </a>
+          `;
+        }
+        item.innerHTML = `
+          <li style="padding: 10px 0px">
+            <b>${result.item.title}</b><br/>
+            ${result.item.authors}<br/>
+            <em class="badge badge-secondary">${result.item.series}</em> ${result.item.venue}<br/>
+            <small>${htmlDecode(result.item.comments)}</small>
+            <div class="mt-2" style="display:flex">
+              <div class="btn-group_" role="group" aria-label="Paper download options">
+                ${links}
+              </div>
+            <div/>
+          </li>
+          `;
+        searchResults.appendChild(item);
+      });
+    }
+
+    searchInput.addEventListener('input', runSearch);
+    searchInput.addEventListener('keydown', function(evt) {
+        var code = evt.charCode || evt.keyCode;
+        if (code == 27) {
+            searchInput.value = '';
+            runSearch();
+        }
+    });
+  });
+</script>
