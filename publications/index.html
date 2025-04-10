@@ -310,10 +310,23 @@
           </div>
         </div>
         <div class="col-lg-9 col-md-9"><div class="publications">
-  
-<h1>Publications</h1>
 
-  <h3 class='publication_year'>2025</h3>
+<h1>Publications</h1>
+<div id="search-box">
+  <input type="text" autofocus id="search-input" placeholder="Search publications..." style="width: 100%; padding: 7px;">
+</div>
+
+<div id="search-area" style="display: none;">
+  <span id="search-result-message" class="mt-2" style="font-size: 0.8em; color: #888;"></span>
+  <!-- <h3>Search Results</h3> -->
+  <ul id="search-results">
+    <!-- Filled with search results -->
+  </ul>
+</div>
+
+<div id="all-publications" style="display: block;" class="mt-3">
+  <!-- <h3>Peer Reviewed</h3> -->
+  <h4 class='publication_year'>2025</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>Large Language Models for Data Discovery and Integration: Challenges and Opportunities</b><br/>
@@ -366,7 +379,7 @@
       </div>
     </li>
   </ul>
-  <h3 class='publication_year'>2024</h3>
+  <h4 class='publication_year'>2024</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>Magneto: Combining Small and Large Language Models for Schema Matching</b><br/>
@@ -463,7 +476,7 @@
       </div>
     </li>
   </ul>
-  <h3 class='publication_year'>2023</h3>
+  <h4 class='publication_year'>2023</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>AlphaD3M: An AutoML Library for Multiple ML Tasks</b><br/>
@@ -520,7 +533,7 @@
       </div>
     </li>
   </ul>
-  <h3 class='publication_year'>2022</h3>
+  <h4 class='publication_year'>2022</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>NYUCIN at the NTCIR-16 Dataset Search 2 Task</b><br/>
@@ -555,7 +568,7 @@
       </div>
     </li>
   </ul>
-  <h3 class='publication_year'>2021</h3>
+  <h4 class='publication_year'>2021</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>DSDD: Domain-Specific Dataset Discovery on the Web</b><br/>
@@ -634,7 +647,7 @@
       </div>
     </li>
   </ul>
-  <h3 class='publication_year'>2020</h3>
+  <h4 class='publication_year'>2020</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>Towards Evaluating Exploratory Model Building Process with AutoML Systems</b><br/>
@@ -655,7 +668,7 @@
       </div>
     </li>
   </ul>
-  <h3 class='publication_year'>2019</h3>
+  <h4 class='publication_year'>2019</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>Visus: An Interactive System for Automatic Machine Learning Model Building and Curation</b><br/>
@@ -712,7 +725,7 @@
       </div>
     </li>
   </ul>
-  <h3 class='publication_year'>2018</h3>
+  <h4 class='publication_year'>2018</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>Learning to Discover Domain-Specific Web Content</b><br/>
@@ -733,7 +746,7 @@
       </div>
     </li>
   </ul>
-  <h3 class='publication_year'>2016</h3>
+  <h4 class='publication_year'>2016</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>Understanding Website Behavior based on User Agent</b><br/>
@@ -794,7 +807,7 @@
       </div>
     </li>
   </ul>
-  <h3 class='publication_year'>2015</h3>
+  <h4 class='publication_year'>2015</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>A Genetic Programming Framework to Schedule Webpage Updates</b><br/>
@@ -819,7 +832,7 @@
       </div>
     </li>
   </ul>
-  <h3 class='publication_year'>2013</h3>
+  <h4 class='publication_year'>2013</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>Learning to Schedule Webpage Updates Using Genetic Programming</b><br/>
@@ -845,9 +858,8 @@
     </li>
   </ul>
 
-
-<h1>Unpublished Work</h1>
-  <h3 class='publication_year'>2021</h3>
+<h3>Unpublished Work</h3>
+  <h4 class='publication_year'>2021</h4>
   <ul>
     <li style="padding: 10px 0px">
       <b>Sublogarithmic Algorithms for Planar Point Location</b><br/>
@@ -863,7 +875,563 @@
       </div>
     </li>
   </ul>
+
 </div>
+
+</div>
+
+<!-- Add Fuse.js search functionality -->
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+<script>
+
+  function htmlDecode(input) {
+    var doc = new DOMParser().parseFromString(input, "text/html");
+    return doc.documentElement.textContent;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Collect publication data
+    const publications = [
+          {
+            title: "Large Language Models for Data Discovery and Integration: Challenges and Opportunities",
+            authors: "Juliana Freire, Grace Fan, Benjamin Feuer, Christos Koutras, Yurong Liu, Eduardo Pena, Aécio Santos, Claudio Silva, Eden Wu",
+            series: "DEB",
+            venue: "Bulletin of the Technical Committee on Data Engineering, IEEE Computer Society",
+            comments: "",
+            arxiv_url: "",
+            pdf_url: "http://sites.computer.org/debull/A25mar/p3.pdf",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Interactive Data Harmonization with LLM Agents",
+            authors: "Aécio Santos, Eduardo H. M. Pena, Roque Lopez, Juliana Freire",
+            series: "ArXiv",
+            venue: "2502.07132",
+            comments: "",
+            arxiv_url: "https://arxiv.org/abs/2502.07132",
+            pdf_url: "https://arxiv.org/pdf/2502.07132",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "AutoDDG: Automated Dataset Description Generation using Large Language Models",
+            authors: "Haoxiang Zhang, Yurong Liu, Wei-Lun (Allen) Hung, Aécio Santos, Juliana Freire",
+            series: "ArXiv",
+            venue: "2502.0105",
+            comments: "",
+            arxiv_url: "https://arxiv.org/abs/2502.01050",
+            pdf_url: "https://arxiv.org/pdf/2502.01050",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Magneto: Combining Small and Large Language Models for Schema Matching",
+            authors: "Yurong Liu, Eduardo Pena, Aécio Santos, Eden Wu, Juliana Freire",
+            series: "ArXiv",
+            venue: "2412.08194",
+            comments: "",
+            arxiv_url: "https://arxiv.org/abs/2412.08194",
+            pdf_url: "https://arxiv.org/pdf/2412.08194",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Enhancing Biomedical Schema Matching with LLM-based Training Data Generation",
+            authors: "Yurong Liu, Aécio Santos, Eduardo H. M. Pena, Roque Lopez, Eden Wu, Juliana Freire",
+            series: "TRL'24",
+            venue: "NeurIPS 2024 Third Table Representation Learning Workshop",
+            comments: "",
+            arxiv_url: "",
+            pdf_url: "https://openreview.net/pdf?id=RMZVUP7NgL",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Sampling Methods for Inner Product Sketching",
+            authors: "Majid Daliri, Juliana Freire, Christopher Musco, Aécio Santos, Haoxiang Zhang",
+            series: "VLDB'24",
+            venue: "Proceedings of the VLDB Endowment, Vol. 17, No. 9.",
+            comments: "",
+            arxiv_url: "https://arxiv.org/abs/2309.16157",
+            pdf_url: "https://www.vldb.org/pvldb/vol17/p2185-musco.pdf",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Efficiently Estimating Mutual Information Between Attributes Across Tables",
+            authors: "Aécio Santos, Flip Korn, Juliana Freire",
+            series: "ICDE'24",
+            venue: "2024 IEEE 40th International Conference on Data Engineering (ICDE)",
+            comments: "",
+            arxiv_url: "https://arxiv.org/abs/2403.15553",
+            pdf_url: "https://arxiv.org/pdf/2403.15553.pdf",
+            acmdl_url: "",
+            ieee_url: "https://ieeexplore.ieee.org/document/10597858",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Simple Analysis of Priority Sampling",
+            authors: "Majid Daliri, Juliana Freire, Christopher Musco, Aécio Santos, Haoxiang Zhang",
+            series: "SOSA'24",
+            venue: "2024 Symposium on Simplicity in Algorithms",
+            comments: "",
+            arxiv_url: "https://arxiv.org/abs/2308.05907",
+            pdf_url: "https://epubs.siam.org/doi/pdf/10.1137/1.9781611977936.21",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "https://epubs.siam.org/doi/10.1137/1.9781611977936.21",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "AlphaD3M: An AutoML Library for Multiple ML Tasks",
+            authors: "Roque Lopez, Raoni Lourenco, Remi Rampin, Sonia Castelo, Aécio Santos, Jorge Ono, Claudio Silva, Juliana Freire",
+            series: "AutoML'23",
+            venue: "AutoML Conference 2023 (ABCD Track)",
+            comments: "",
+            arxiv_url: "",
+            pdf_url: "https://openreview.net/pdf?id=71eJdMzCCIi",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Weighted Minwise Hashing Beats Linear Sketching for Inner Product Estimation",
+            authors: "Aline Bessa, Majid Daliri, Juliana Freire, Cameron Musco, Christopher Musco, Aécio Santos, Haoxiang Zhang",
+            series: "PODS'23",
+            venue: "Proceedings of the 42nd ACM SIGMOD-SIGACT-SIGAI Symposium on Principles of Database Systems",
+            comments: "",
+            arxiv_url: "https://arxiv.org/abs/2301.05811",
+            pdf_url: "https://arxiv.org/pdf/2301.05811.pdf",
+            acmdl_url: "https://dl.acm.org/doi/10.1145/3584372.3588679",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Using Pipeline Performance Prediction to Accelerate AutoML Systems",
+            authors: "Haoxiang Zhang, Roque López, Aécio Santos, Jorge Piazentin Ono, Aline Bessa, and Juliana Freire",
+            series: "DEEM'23",
+            venue: "Proceedings of the Seventh Workshop on Data Management for End-to-End Machine Learning",
+            comments: "&lt;i class&#61;&quot;fa fa-award gold-icon&quot;&gt;&lt;/i&gt; Received the workshop&#39;s Best Paper Award.",
+            arxiv_url: "",
+            pdf_url: "/static/pdfs/deem2023-ml4ml.pdf",
+            acmdl_url: "https://dl.acm.org/doi/10.1145/3595360.3595856",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "NYUCIN at the NTCIR-16 Dataset Search 2 Task",
+            authors: "Levy Silva, Luciano Barbosa, Sonia Castelo, Haoxiang Zhang, Aécio Santos, Juliana Freire",
+            series: "NTCIR 16",
+            venue: "Proceedings of the 16th NTCIR Conference on Evaluation of Information Access Technologies",
+            comments: "&lt;i class&#61;&quot;fa fa-award gold-icon&quot;&gt;&lt;/i&gt; Our solution for the 2022 NTCIR Data Search 2 competition ranked 1st place among all submitted runs.",
+            arxiv_url: "",
+            pdf_url: "https://research.nii.ac.jp/ntcir/workshop/OnlineProceedings16/pdf/ntcir/06-NTCIR16-DATA-SilvaL.pdf",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "A Sketch-based Index for Correlated Dataset Search",
+            authors: "Aécio Santos, Aline Bessa, Christopher Musco, Juliana Freire",
+            series: "ICDE'22",
+            venue: "Proceedings of the 2022 IEEE 38th International Conference on Data Engineering (ICDE)",
+            comments: "",
+            arxiv_url: "",
+            pdf_url: "/static/pdfs/icde2022-qcr-index.pdf",
+            acmdl_url: "",
+            ieee_url: "https://ieeexplore.ieee.org/document/9835690",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "DSDD: Domain-Specific Dataset Discovery on the Web",
+            authors: "Haoxiang Zhang, Aécio Santos, Juliana Freire",
+            series: "CIKM'21",
+            venue: "Proceedings of the 30th ACM International Conference on Information & Knowledge Management",
+            comments: "",
+            arxiv_url: "",
+            pdf_url: "/static/pdfs/dsdd-cikm2021.pdf",
+            acmdl_url: "https://dl.acm.org/doi/10.1145/3459637.3482427",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Auctus: A Dataset Search Engine for Data Discovery and Augmentation",
+            authors: "Sonia Castelo, Rémi Rampin, Aécio Santos, Aline Bessa, Fernando Chirigati, Juliana Freire",
+            series: "PVLDB'21",
+            venue: "Proceedings of the VLDB Endowment: Volume 14, Issue 12",
+            comments: "Demonstration at the VLDB 2021 conference.",
+            arxiv_url: "https://arxiv.org/abs/2102.05716",
+            pdf_url: "http://vldb.org/pvldb/vol14/p2791-castelo.pdf",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Correlation Sketches for Approximate Join-Correlation Queries",
+            authors: "Aécio Santos, Aline Bessa, Fernando Chirigati, Christopher Musco, Juliana Freire",
+            series: "SIGMOD'21",
+            venue: "Proceedings of the 2021 International Conference on Management of Data",
+            comments: "",
+            arxiv_url: "https://arxiv.org/abs/2104.03353",
+            pdf_url: "https://arxiv.org/pdf/2104.03353.pdf",
+            acmdl_url: "https://dl.acm.org/doi/10.1145/3448016.3458456?cid=99658620176",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "An Ecosystem of Tools for Modeling Political Violence",
+            authors: "Aline Bessa, Sonia Castelo, Rémi Rampin, Aécio Santos, Mike Shoemate, Vito D'Orazio, Juliana Freire",
+            series: "SIGMOD'21",
+            venue: "Proceedings of the 2021 International Conference on Management of Data",
+            comments: "",
+            arxiv_url: "",
+            pdf_url: "/static/pdfs/bessa@sigmod2021.pdf",
+            acmdl_url: "https://dl.acm.org/doi/10.1145/3448016.3457235?cid=99658620176",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Towards Evaluating Exploratory Model Building Process with AutoML Systems",
+            authors: "Sunsoo (Ray) Hong, Sonia Castelo, Vito D’Orazio, Christopher Benthune, AécioSantos, Scott Langevin, David Jonker, Enrico Bertini, and Juliana Freire",
+            series: "ArXiv",
+            venue: "2009.00449",
+            comments: "",
+            arxiv_url: "https://arxiv.org/abs/2009.00449",
+            pdf_url: "https://arxiv.org/pdf/2009.00449.pdf",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Visus: An Interactive System for Automatic Machine Learning Model Building and Curation",
+            authors: "Aécio Santos, Sonia Castelo, Cristian Felix, Jorge H. P. Ono, Bowen Yu, Ray Hong, Cláudio Silva, Enrico Bertini, and Juliana Freire",
+            series: "HILDA'19",
+            venue: "Proceedings of the Workshop on Human-In-the-Loop Data Analytics",
+            comments: "Presented at &lt;a href&#61;&quot;https://hilda.io/2019/&quot;&gt;HILDA 2019&lt;/a&gt; (co-located with SIGMOD&#39;2019), in Amsterdam.",
+            arxiv_url: "https://arxiv.org/abs/1907.02889",
+            pdf_url: "",
+            acmdl_url: "https://dl.acm.org/doi/10.1145/3328519.3329134?cid=99658620176",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "A Topic-Agnostic Approach for Identifying Fake News Pages",
+            authors: "Sonia Castelo, Thais Almeida, Anas Elghafari, Aécio Santos, Kien Pham, Eduardo Nakamura, and Juliana Freire",
+            series: "WWW'19 Companion",
+            venue: "The 2019 Web Conference Companion",
+            comments: "Presented at &lt;a href&#61;&quot;https://sites.google.com/view/misinfoworkshop&quot;&gt;MisinfoWorkshop2019&lt;/a&gt; (co-located with WWW&#39;2019).",
+            arxiv_url: "https://arxiv.org/abs/1905.00957",
+            pdf_url: "",
+            acmdl_url: "https://dl.acm.org/doi/10.1145/3308560.3316739?cid=99658620176",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Bootstrapping Domain-Specific Content Discovery on the Web",
+            authors: "Kien Pham, Aécio Santos, Juliana Freire",
+            series: "WWW'19",
+            venue: "Proceedings of The Web Conference 2019",
+            comments: "",
+            arxiv_url: "https://arxiv.org/abs/1902.09667v1",
+            pdf_url: "",
+            acmdl_url: "https://dl.acm.org/doi/10.1145/3308558.3313709?cid=99658620176",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Learning to Discover Domain-Specific Web Content",
+            authors: "Kien Pham, Aécio Santos, Juliana Freire",
+            series: "WSDM'18",
+            venue: "Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining",
+            comments: "16% acceptance rate.",
+            arxiv_url: "",
+            pdf_url: "/static/pdfs/wsdmf617-phamA.pdf",
+            acmdl_url: "https://dl.acm.org/doi/10.1145/3159652.3159724?cid=99658620176",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Understanding Website Behavior based on User Agent",
+            authors: "Kien Pham, Aécio Santos, Juliana Freire",
+            series: "SIGIR'16",
+            venue: "Proceedings of the 39th International ACM SIGIR conference on Research and Development in Information Retrieval",
+            comments: "",
+            arxiv_url: "",
+            pdf_url: "/static/pdfs/pham@sigir2016.pdf",
+            acmdl_url: "https://dl.acm.org/doi/10.1145/2911451.2914757?cid=99658620176",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "https://github.com/VIDA-NYU/user-agent-study",
+            slides_url: "",
+          },
+          {
+            title: "A First Study on Temporal Dynamics of Topics on the Web",
+            authors: "Aécio Santos, Bruno Pasini, Juliana Freire",
+            series: "TempWeb'16",
+            venue: "Proceedings of the 25th International Conference Companion on World Wide Web",
+            comments: "Presented at &lt;a href&#61;&quot;https://temporalweb.net/page0/page0.html&quot;&gt;8&lt;sup&gt;th&lt;/sup&gt; Temporal Web Analytics Workshop&lt;/a&gt; (co-located with WWW&#39;2016).",
+            arxiv_url: "",
+            pdf_url: "http://gdac.uqam.ca/WWW2016-Proceedings/companion/p849.pdf",
+            acmdl_url: "https://dl.acm.org/authorize?N658119",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "Interactive Exploration for Domain Discovery on the Web",
+            authors: "Yamuna Krishnamurthy, Kien Pham, Aécio Santos, and Juliana Freire",
+            series: "IDEA'16",
+            venue: "KDD 2016 Workshop on Interactive Data Exploration and Analytics",
+            comments: "",
+            arxiv_url: "",
+            pdf_url: "/static/pdfs/idea2016-ddt.pdf",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "https://github.com/VIDA-NYU/domain_discovery_tool",
+            slides_url: "",
+          },
+          {
+            title: "A Genetic Programming Framework to Schedule Webpage Updates",
+            authors: "Aécio S. R. Santos, Cristiano R. Carvalho, Jussara M. Almeida, Edleno S. Moura, Altigran S. Silva, Nivio Ziviani",
+            series: "IRJ",
+            venue: "Information Retrieval: Volume 18 Issue 1",
+            comments: "",
+            arxiv_url: "",
+            pdf_url: "/static/pdfs/santos@irj2015.pdf",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "https://link.springer.com/article/10.1007/s10791-014-9248-5",
+            code_url: "https://github.com/aecio/gp4c",
+            slides_url: "",
+          },
+          {
+            title: "Learning to Schedule Webpage Updates Using Genetic Programming",
+            authors: "Aécio S. Santos, Nivio Ziviani, Jussara Almeida, Cristiano R. Carvalho, Edleno Silva Moura, Altigran Soares Silva",
+            series: "SPIRE 2013",
+            venue: "Proceedings of the 20th International Symposium on String Processing and Information Retrieval",
+            comments: "",
+            arxiv_url: "",
+            pdf_url: "https://citeseerx.ist.psu.edu/document?type=pdf&doi=673381883b0ce07d49b5c9c4477d394853141c97",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            code_url: "https://github.com/aecio/gp4c",
+            slides_url: "https://homepages.dcc.ufmg.br/~nivio/cursos/ri15/transp/spire13.pdf",
+          },
+    ];
+
+    // Initialize Fuse.js
+    const fuse = new Fuse(publications, {
+      keys: ['title', 'authors', 'series', 'venue', 'comments'],
+        ignoreLocation: true,
+        // isCaseSensitive: false,
+        // threshold: 0.25,
+        // distance: 100,
+        // location: 0,
+    });
+
+    // Handle search input
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const searchArea = document.getElementById('search-area');
+    const allPublications = document.getElementById('all-publications');
+
+      
+    function runSearch() {
+      const query = searchInput.value;
+      if (query.length === 0) {
+        searchResults.innerHTML = '';
+        allPublications.style.display = 'block';
+        searchArea.style.display = 'none';
+        return;
+      } else {
+        allPublications.style.display = 'none';
+        searchArea.style.display = 'block';
+      }
+
+      // Perform search
+      const results = fuse.search(query);
+
+      // Clear previous results
+      searchResults.innerHTML = '';
+      
+      // Display result message based on results
+      const message = document.getElementById('search-result-message')
+      if (results.length === 0) {
+        message.innerText = `No results found for "${query}".`;
+      } else if (results.length === 1) {
+        message.innerText = `Found ${results.length} result for "${query}".`;
+      } else {
+        message.innerText = `Found ${results.length} results for "${query}".`;
+      }
+
+      // Display new search results
+      results.forEach(result => {
+        const item = document.createElement('li');
+
+        var links = '';
+        if (result.item.arxiv_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="" target="_blank">
+              <i class="fa fa-file-pdf"></i> Arxiv
+            </a>
+          `;
+        }
+        if (result.item.pdf_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="" target="_blank">
+              <i class="fa fa-file-pdf"></i> PDF
+            </a>
+          `;
+        }
+        if (result.item.acmdl_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="" target="_blank">
+              <i class="fa fa-book-atlas"></i> ACM DL
+            </a>
+          `;
+        }
+        if (result.item.ieee_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="" target="_blank">
+              <i class="fa fa-book-atlas"></i> IEEE Xplore
+            </a>
+          `;
+        }
+        if (result.item.siam_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="" target="_blank">
+              <i class="fa fa-book-atlas"></i> SIAM
+            </a>
+          `;
+        }
+        if (result.item.springer_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="" target="_blank">
+              <i class="fa fa-book-atlas"></i> Springer
+            </a>
+          `;
+        }
+        if (result.item.code_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="" target="_blank">
+              <i class="fa fa-code"></i> Source Code
+            </a>
+          `;
+        }
+        if (result.item.slides_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="" target="_blank">
+              <i class="fa fa-file-powerpoint"></i> Slides
+            </a>
+          `;
+        }
+        item.innerHTML = `
+          <li style="padding: 10px 0px">
+            <b>${result.item.title}</b><br/>
+            ${result.item.authors}<br/>
+            <em class="badge badge-secondary">${result.item.series}</em> ${result.item.venue}<br/>
+            <small>${htmlDecode(result.item.comments)}</small>
+            <div class="mt-2" style="display:flex">
+              <div class="btn-group_" role="group" aria-label="Paper download options">
+                ${links}
+              </div>
+            <div/>
+          </li>
+          `;
+        searchResults.appendChild(item);
+      });
+    }
+
+    searchInput.addEventListener('input', runSearch);
+    searchInput.addEventListener('keydown', function(evt) {
+        var code = evt.charCode || evt.keyCode;
+        if (code == 27) {
+            searchInput.value = '';
+            runSearch();
+        }
+    });
+  });
+</script>
 </div>
       </div>
     </div>
