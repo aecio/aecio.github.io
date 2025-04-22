@@ -6,6 +6,8 @@ permalink: /2015/06/08/analise-de-dados-usando-elasticsearch-aggregations/
 published_time: 2015-06-08T19:05:18+00:00
 modified_time:  2015-06-09T02:03:58+00:00
 content_type: markdown
+extra:
+  content_class: "blog-post"
 ---
 # Análise de dados usando Elasticsearch Aggregations
 *June 8, 2015*

@@ -6,6 +6,8 @@ permalink: /2012/09/04/custom-latex-beamer-theme/
 published_time: 2012-09-04T04:06:41+00:00
 modified_time: 2016-05-14T20:55:49+00:00
 content_type: markdown
+extra:
+  content_class: "blog-post"
 ---
 
 # A simple & clean Latex Beamer theme
