@@ -10,11 +10,11 @@
     <title>Publications | Aécio Santos</title>
 
     <!-- Web fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro:400,700,400italic"
-      rel="stylesheet"
-    />
-
+      href="https://fonts.googleapis.com/css2?family=Oswald&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+      rel="stylesheet">
     <!-- Bootstrap Core CSS -->
     <link href="/static/css/bootstrap4-nyu-d3m.min.css" rel="stylesheet" />
 
@@ -24,13 +24,20 @@
     <style>
       body {
         /* font-family: Lora, 'Times New Roman', serif; */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Source Sans 3', sans-serif;
         font-size: 20px;
         -webkit-tap-highlight-color: #0085a1;
       }
       p {
         /* font-family: 'Lora', 'Source Sans Pro', sans-serif; */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Source Sans 3', sans-serif;
+      }
+      .blog-post p,
+      .blog-post ul {
+        font-family: "Source Serif 4", Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      .blog-post h1 {
+        margin-top: 0.75em;
       }
       h1 {
         margin-bottom: 1.25rem;
@@ -56,6 +63,7 @@
       }
       .author__links svg {
         width: 16px;
+        padding-bottom: 5px;
       }
       .publication_year {
         padding-left: 0.75rem;
@@ -309,7 +317,9 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-9 col-md-9"><div class="publications">
+        <div class="col-lg-9 col-md-9">
+          <div class="">
+            <div class="publications">
 
 <h1>Publications</h1>
 <div id="search-box">
@@ -336,7 +346,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2412.08194" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2412.08194" target="_blank">
@@ -368,7 +378,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2502.07132" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2502.07132" target="_blank">
@@ -386,7 +396,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2502.01050" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2502.01050" target="_blank">
@@ -421,7 +431,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2309.16157" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://www.vldb.org/pvldb/vol17/p2185-musco.pdf" target="_blank">
@@ -439,7 +449,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2403.15553" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2403.15553.pdf" target="_blank">
@@ -461,7 +471,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2308.05907" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://epubs.siam.org/doi/pdf/10.1137/1.9781611977936.21" target="_blank">
@@ -500,7 +510,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2301.05811" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2301.05811.pdf" target="_blank">
@@ -596,7 +606,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2102.05716" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="http://vldb.org/pvldb/vol14/p2791-castelo.pdf" target="_blank">
@@ -614,7 +624,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2104.03353" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2104.03353.pdf" target="_blank">
@@ -657,7 +667,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2009.00449" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2009.00449.pdf" target="_blank">
@@ -678,7 +688,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/1907.02889" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3328519.3329134?cid&#61;99658620176" target="_blank" referrerpolicy="no-referrer-when-downgrade">
@@ -696,7 +706,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/1905.00957" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3308560.3316739?cid&#61;99658620176" target="_blank" referrerpolicy="no-referrer-when-downgrade">
@@ -714,7 +724,7 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/1902.09667v1" target="_blank">
-            <i class="fa fa-file-pdf"></i>
+            <i class="fa fa-file"></i>
             Arxiv
           </a>
           <a class="btn btn-outline-primary" href="https://dl.acm.org/doi/10.1145/3308558.3313709?cid&#61;99658620176" target="_blank" referrerpolicy="no-referrer-when-downgrade">
@@ -1432,7 +1442,9 @@
     });
   });
 </script>
-</div>
+
+          </div>
+        </div>
       </div>
     </div>
 
