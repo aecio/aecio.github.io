@@ -10,11 +10,11 @@
     <title>Análise de dados usando Elasticsearch Aggregations | Aécio Santos</title>
 
     <!-- Web fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro:400,700,400italic"
-      rel="stylesheet"
-    />
-
+      href="https://fonts.googleapis.com/css2?family=Oswald&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+      rel="stylesheet">
     <!-- Bootstrap Core CSS -->
     <link href="/static/css/bootstrap4-nyu-d3m.min.css" rel="stylesheet" />
 
@@ -24,13 +24,20 @@
     <style>
       body {
         /* font-family: Lora, 'Times New Roman', serif; */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Source Sans 3', sans-serif;
         font-size: 20px;
         -webkit-tap-highlight-color: #0085a1;
       }
       p {
         /* font-family: 'Lora', 'Source Sans Pro', sans-serif; */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Source Sans 3', sans-serif;
+      }
+      .blog-post p,
+      .blog-post ul {
+        font-family: "Source Serif 4", Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      .blog-post h1 {
+        margin-top: 0.75em;
       }
       h1 {
         margin-bottom: 1.25rem;
@@ -56,6 +63,7 @@
       }
       .author__links svg {
         width: 16px;
+        padding-bottom: 5px;
       }
       .publication_year {
         padding-left: 0.75rem;
@@ -309,7 +317,9 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-9 col-md-9"><h1>Análise de dados usando Elasticsearch Aggregations</h1>
+        <div class="col-lg-9 col-md-9">
+          <div class="blog-post">
+            <h1>Análise de dados usando Elasticsearch Aggregations</h1>
 <p><em>June 8, 2015</em></p>
 <img class="img-fluid" src="/static/img/elasticsearch.png" alt="Elasticsearch logo">
 <p>O <a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a> é uma ferramenta que surgiu inicialmente com intenção de ser uma máquina de busca distribuída desenvolvida em cima da biblioteca <a href="http://lucene.apache.org/">Apache Lucene</a>. Ao longo do tempo, com a adição de novas features, foram surgindo diferentes casos de uso da ferramenta que vão muito além da busca textual para qual foi inicialmente desenvolvida.</p>
@@ -603,7 +613,9 @@
 <p>Neste post vimos como o Elasticsearch pode ser uma ferramenta que vai muito além de busca textual. A nova funcionalidade de agregação de dados permite realização de consultas <em>ad-hoc</em> aos dados, possibilitando a exploração de grande bases de dados com pouco esforço de programação. O tipos de agregações disponíveis no Elasticsearch vão muito além das utilizadas nesse post. Existem agregações por distância geográfica, faixas de IPv4, percentis, histogramas, faixas de data, e etc, que ainda podem ser combinadas com os diversos tipos de queries e filtros disponíveis. Veja lá na <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html">documentação</a> a lista de agregações disponíveis.</p>
 <!-- Se alguma coisa tiver ficado muito confusa, deixem as dúvidas nos comentários que vou tentando esclarecer e melhorar o post. -->
 <p>Até a próxima! 🙂</p>
-</div>
+
+          </div>
+        </div>
       </div>
     </div>
 

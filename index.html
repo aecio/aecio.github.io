@@ -10,11 +10,11 @@
     <title>About Me | Aécio Santos</title>
 
     <!-- Web fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro:400,700,400italic"
-      rel="stylesheet"
-    />
-
+      href="https://fonts.googleapis.com/css2?family=Oswald&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+      rel="stylesheet">
     <!-- Bootstrap Core CSS -->
     <link href="/static/css/bootstrap4-nyu-d3m.min.css" rel="stylesheet" />
 
@@ -24,13 +24,20 @@
     <style>
       body {
         /* font-family: Lora, 'Times New Roman', serif; */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Source Sans 3', sans-serif;
         font-size: 20px;
         -webkit-tap-highlight-color: #0085a1;
       }
       p {
         /* font-family: 'Lora', 'Source Sans Pro', sans-serif; */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Source Sans 3', sans-serif;
+      }
+      .blog-post p,
+      .blog-post ul {
+        font-family: "Source Serif 4", Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      .blog-post h1 {
+        margin-top: 0.75em;
       }
       h1 {
         margin-bottom: 1.25rem;
@@ -56,6 +63,7 @@
       }
       .author__links svg {
         width: 16px;
+        padding-bottom: 5px;
       }
       .publication_year {
         padding-left: 0.75rem;
@@ -309,8 +317,10 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-9 col-md-9"><h1>About Me</h1>
-<p>Hey! I’m Aécio.</p>
+        <div class="col-lg-9 col-md-9">
+          <div class="">
+            <h1>About Me</h1>
+<p>👋🏽 Hey! I’m Aécio.</p>
 <h5>Professional Experience</h5>
 <p>I am a Research Engineer at <a href="http://engineering.nyu.edu/">New York University (NYU)</a> in New York City. At NYU, I've been working on multiple research and development projects (including DARPA's Memex and D3M programs) which require a good combination of knowledge and skills in Software Engineering, Machine Learning, and Information Retrieval (Web Search).
 Previously, I worked as a Software Engineer for a Brazilian start-up called <a href="https://web.archive.org/web/20150226205818/http://www.zunnit.com/index_en.html">Zunnit Technologies</a>, where we built a scalable news recommendation platform used by the major Brazilian media companies.</p>
@@ -318,7 +328,9 @@ Previously, I worked as a Software Engineer for a Brazilian start-up called <a h
 <p>I received a Ph.D. in Computer Science from New York University's Tandon School of Engineering, advised by Prof. Juliana Freire. Throughout my Ph.D., I've been fortunate to have been mentored by <a href="https://www.chrismusco.com/">Chris Musco</a> and <a href="https://research.google/people/106040/">Flip Korn</a>. Previously, I received a Master's Degree in Computer Science from the <a href="http://dcc.ufmg.br/dcc/">Federal University of Minas Gerais (UFMG)</a>, and a <em>Technology Degree</em> in Analysis and Development of Systems from <a href="http://ifpi.edu.br/">Federal Institute of Piauí (IFPI)</a>.</p>
 <h5>Research Experience</h5>
 <p>I've had the opportunity to work in several research projects which resulted in various <a href="/publications">publications</a> in top-tier research venues, which include <em>VLDB</em>, <em>SIGMOD</em>, <em>ICDE</em>, <em>PODS</em>, <em>The Web Conference (WWW)</em>, <em>SIGIR</em>, <em>WSDM</em>, <em>CIKM</em>, <em>SPIRE</em>, and <em>Information Retrieval Journal</em>. I'm interested in solving complex problems (which usually involve dealing with large amounts of data) that lie in the intersection of research areas such as <em>Information Retrieval</em>, <em>Machine Learning</em>, <em>Data Management</em>, and <em>Information Visualization</em>.</p>
-</div>
+
+          </div>
+        </div>
       </div>
     </div>
 

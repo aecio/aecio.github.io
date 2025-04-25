@@ -10,11 +10,11 @@
     <title>Problemas de ‘Permission denied (publickey)’ no github ao tentar realizar pull e push no Windows XP | Aécio Santos</title>
 
     <!-- Web fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro:400,700,400italic"
-      rel="stylesheet"
-    />
-
+      href="https://fonts.googleapis.com/css2?family=Oswald&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+      rel="stylesheet">
     <!-- Bootstrap Core CSS -->
     <link href="/static/css/bootstrap4-nyu-d3m.min.css" rel="stylesheet" />
 
@@ -24,13 +24,20 @@
     <style>
       body {
         /* font-family: Lora, 'Times New Roman', serif; */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Source Sans 3', sans-serif;
         font-size: 20px;
         -webkit-tap-highlight-color: #0085a1;
       }
       p {
         /* font-family: 'Lora', 'Source Sans Pro', sans-serif; */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Source Sans 3', sans-serif;
+      }
+      .blog-post p,
+      .blog-post ul {
+        font-family: "Source Serif 4", Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      .blog-post h1 {
+        margin-top: 0.75em;
       }
       h1 {
         margin-bottom: 1.25rem;
@@ -56,6 +63,7 @@
       }
       .author__links svg {
         width: 16px;
+        padding-bottom: 5px;
       }
       .publication_year {
         padding-left: 0.75rem;
@@ -309,7 +317,9 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-9 col-md-9"><h1>Problemas de ‘Permission denied (publickey)’ no github ao tentar realizar pull e push no Windows XP</h1>
+        <div class="col-lg-9 col-md-9">
+          <div class="blog-post">
+            <h1>Problemas de ‘Permission denied (publickey)’ no github ao tentar realizar pull e push no Windows XP</h1>
 <p><em>December 8, 2009</em></p>
 <p>Ontem perdi um bom tempo tentando configurar um projeto no GitHub. Estava ocorrendo uns erros de autenticação (<em>Permission denied</em>) ao tentar fazer pull ou push.</p>
 <p>Depois de muitas buscas na web e não encontrar nada, descobri que o erro estava sendo causado por codificação de caracteres. O nome da minha conta de usuário no Windows era &quot;Aécio&quot; e por algum motivo o Git não reconhecia o acento do nome. Ao chamar o comando <code>ssh-keygen</code> para gerar a chave de autenticação, ao invés do Git gerar a chave dentro da pasta de usuário padrão <code>C:\Documents and Settings\Aécio.ssh</code>, ele estava criando outra pasta com nome <code>C:\Documents and Settings\A’cio.ssh</code>. Consegui adicionar a chave gerada no GitHub (foi aceita sem problemas). Até consegui fazer o primeiro push em um projeto, mas depois apareceram alguns erros ao tentar fazer push. Tentei gerar a chave SSH em outra pasta, mas o problema continuava.</p>
@@ -321,7 +331,9 @@
 <li><a href="http://github.com/guides/addressing-authentication-problems-with-ssh">Criação de chaves SSH (Generating SSH keys)</a></li>
 <li><a href="http://github.com/guides/addressing-authentication-problems-with-ssh">Resolvendo problemas de autenticação com SSH (Addressing authentication problems with SSH)</a></li>
 </ul>
-</div>
+
+          </div>
+        </div>
       </div>
     </div>
 
