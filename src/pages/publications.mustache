@@ -430,56 +430,56 @@ publications:
         var links = '';
         if (result.item.arxiv_url) {
           links += `
-            <a class="btn btn-outline-primary" href="{{ arxiv_url }}" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.arxiv_url }" target="_blank">
               <i class="fa fa-file-pdf"></i> Arxiv
             </a>
           `;
         }
         if (result.item.pdf_url) {
           links += `
-            <a class="btn btn-outline-primary" href="{{ pdf_url }}" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.pdf_url }" target="_blank">
               <i class="fa fa-file-pdf"></i> PDF
             </a>
           `;
         }
         if (result.item.acmdl_url) {
           links += `
-            <a class="btn btn-outline-primary" href="{{ acmdl_url }}" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.acmdl_url }" target="_blank">
               <i class="fa fa-book-atlas"></i> ACM DL
             </a>
           `;
         }
         if (result.item.ieee_url) {
           links += `
-            <a class="btn btn-outline-primary" href="{{ ieee_url }}" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.ieee_url }" target="_blank">
               <i class="fa fa-book-atlas"></i> IEEE Xplore
             </a>
           `;
         }
         if (result.item.siam_url) {
           links += `
-            <a class="btn btn-outline-primary" href="{{ siam_url }}" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.siam_url }" target="_blank">
               <i class="fa fa-book-atlas"></i> SIAM
             </a>
           `;
         }
         if (result.item.springer_url) {
           links += `
-            <a class="btn btn-outline-primary" href="{{ springer_url }}" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.springer_url }" target="_blank">
               <i class="fa fa-book-atlas"></i> Springer
             </a>
           `;
         }
         if (result.item.code_url) {
           links += `
-            <a class="btn btn-outline-primary" href="{{ code_url }}" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.code_url }" target="_blank">
               <i class="fa fa-code"></i> Source Code
             </a>
           `;
         }
         if (result.item.slides_url) {
           links += `
-            <a class="btn btn-outline-primary" href="{{ slides_url }}" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.slides_url }" target="_blank">
               <i class="fa fa-file-powerpoint"></i> Slides
             </a>
           `;
