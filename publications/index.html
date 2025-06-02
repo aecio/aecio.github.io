@@ -371,10 +371,10 @@
       </div>
     </li>
     <li style="padding: 10px 0px">
-      <b>Interactive Data Harmonization with LLM Agents</b><br/>
+      <b>Interactive Data Harmonization with LLM Agents: Opportunities and Challenges</b><br/>
       Aécio Santos, Eduardo H. M. Pena, Roque Lopez, Juliana Freire<br/>
-      <em class="badge badge-secondary">ArXiv</em> 2502.07132<br/>
-      <small></small>
+      <em class="badge badge-secondary">NOVAS'25</em> Novel Optimizations for Visionary AI Systems Workshop<br/>
+      <small>To be presented at NOVAS'25 (co-located with SIGMOD/PODS 2025)</small>
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2502.07132" target="_blank">
@@ -601,7 +601,7 @@
     <li style="padding: 10px 0px">
       <b>Auctus: A Dataset Search Engine for Data Discovery and Augmentation</b><br/>
       Sonia Castelo, Rémi Rampin, Aécio Santos, Aline Bessa, Fernando Chirigati, Juliana Freire<br/>
-      <em class="badge badge-secondary">PVLDB'21</em> Proceedings of the VLDB Endowment: Volume 14, Issue 12<br/>
+      <em class="badge badge-secondary">PVLDB'21</em> Proceedings of the VLDB Endowment, Vol. 14, No. 12<br/>
       <small>Demonstration at the VLDB 2021 conference.</small>
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
@@ -933,11 +933,11 @@
             slides_url: "",
           },
           {
-            title: "Interactive Data Harmonization with LLM Agents",
+            title: "Interactive Data Harmonization with LLM Agents: Opportunities and Challenges",
             authors: "Aécio Santos, Eduardo H. M. Pena, Roque Lopez, Juliana Freire",
-            series: "ArXiv",
-            venue: "2502.07132",
-            comments: "",
+            series: "NOVAS'25",
+            venue: "Novel Optimizations for Visionary AI Systems Workshop",
+            comments: "To be presented at NOVAS&#39;25 (co-located with SIGMOD/PODS 2025)",
             arxiv_url: "https://arxiv.org/abs/2502.07132",
             pdf_url: "https://arxiv.org/pdf/2502.07132",
             acmdl_url: "",
@@ -1116,7 +1116,7 @@
             title: "Auctus: A Dataset Search Engine for Data Discovery and Augmentation",
             authors: "Sonia Castelo, Rémi Rampin, Aécio Santos, Aline Bessa, Fernando Chirigati, Juliana Freire",
             series: "PVLDB'21",
-            venue: "Proceedings of the VLDB Endowment: Volume 14, Issue 12",
+            venue: "Proceedings of the VLDB Endowment, Vol. 14, No. 12",
             comments: "Demonstration at the VLDB 2021 conference.",
             arxiv_url: "https://arxiv.org/abs/2102.05716",
             pdf_url: "http://vldb.org/pvldb/vol14/p2791-castelo.pdf",
@@ -1361,56 +1361,56 @@
         var links = '';
         if (result.item.arxiv_url) {
           links += `
-            <a class="btn btn-outline-primary" href="" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.arxiv_url }" target="_blank">
               <i class="fa fa-file-pdf"></i> Arxiv
             </a>
           `;
         }
         if (result.item.pdf_url) {
           links += `
-            <a class="btn btn-outline-primary" href="" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.pdf_url }" target="_blank">
               <i class="fa fa-file-pdf"></i> PDF
             </a>
           `;
         }
         if (result.item.acmdl_url) {
           links += `
-            <a class="btn btn-outline-primary" href="" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.acmdl_url }" target="_blank">
               <i class="fa fa-book-atlas"></i> ACM DL
             </a>
           `;
         }
         if (result.item.ieee_url) {
           links += `
-            <a class="btn btn-outline-primary" href="" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.ieee_url }" target="_blank">
               <i class="fa fa-book-atlas"></i> IEEE Xplore
             </a>
           `;
         }
         if (result.item.siam_url) {
           links += `
-            <a class="btn btn-outline-primary" href="" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.siam_url }" target="_blank">
               <i class="fa fa-book-atlas"></i> SIAM
             </a>
           `;
         }
         if (result.item.springer_url) {
           links += `
-            <a class="btn btn-outline-primary" href="" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.springer_url }" target="_blank">
               <i class="fa fa-book-atlas"></i> Springer
             </a>
           `;
         }
         if (result.item.code_url) {
           links += `
-            <a class="btn btn-outline-primary" href="" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.code_url }" target="_blank">
               <i class="fa fa-code"></i> Source Code
             </a>
           `;
         }
         if (result.item.slides_url) {
           links += `
-            <a class="btn btn-outline-primary" href="" target="_blank">
+            <a class="btn btn-outline-primary" href="${ result.item.slides_url }" target="_blank">
               <i class="fa fa-file-powerpoint"></i> Slides
             </a>
           `;

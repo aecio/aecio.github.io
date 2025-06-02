@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Blog | Aécio Santos</title>
+    <title>Unlocking Hidden Data Relationships: A Deep Dive into Efficient Correlated Data Discovery | Aécio Santos</title>
 
     <!-- Web fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -318,35 +318,64 @@
           </div>
         </div>
         <div class="col-lg-9 col-md-9">
-          <div class="">
-            <h1>(Not So) Recent Blog Posts</h1>
-
-<div class="post-preview-group">
-    <div class="post-preview">
-        <a href="/2015/06/08/analise-de-dados-usando-elasticsearch-aggregations/">
-            <h2 class="post-title">Análise de dados usando Elasticsearch Aggregations</h2>
-        </a>
-        <p class="post-meta">Posted by <i>Aécio Santos</i> on June 08, 2015</p>
-    </div>
-    <div class="post-preview">
-        <a href="/2012/10/06/using-dolphinkde-to-manage-git-repositories-or-other-vcs/">
-            <h2 class="post-title">Using Dolphin/KDE to manage Git repositories (or other VCS)</h2>
-        </a>
-        <p class="post-meta">Posted by <i>Aécio Santos</i> on October 06, 2012</p>
-    </div>
-    <div class="post-preview">
-        <a href="/2012/09/04/custom-latex-beamer-theme/">
-            <h2 class="post-title">A simple &amp; clean Latex Beamer theme</h2>
-        </a>
-        <p class="post-meta">Posted by <i>Aécio Santos</i> on September 04, 2012</p>
-    </div>
-    <div class="post-preview">
-        <a href="/2009/12/08/problemas-de-permission-denied-publickey-no-github-ao-tentar-realizar-pull-e-push-no-windows-xp/">
-            <h2 class="post-title">Problemas de ‘Permission denied (publickey)’ no github ao tentar realizar pull e push no Windows XP</h2>
-        </a>
-        <p class="post-meta">Posted by <i>Aécio Santos</i> on December 08, 2009</p>
-    </div>
+          <div class="blog-post">
+            <h1>Unlocking Hidden Data Relationships: A Deep Dive into Efficient Correlated Data Discovery</h1>
+<p><em>April 20, 2025</em></p>
+<p>We live in an era of unprecedented data generation, from scientific research to government records and business operations. This vast availability offers great opportunities for analysis and discovery, but it also raises a significant challenge: <strong>how do we identify the <em>right</em> data in such immense repositories?</strong></p>
+<p>In my PhD research, I focused on the challenging but essential task of discovering <em>correlated</em> data across different datasets. Now, one year after completing my PhD, I am writing this post to provide a brief summary of my thesis: <a href="/static/pdfs/phd-thesis.pdf">&quot;Efficient Algorithms for Correlated Data Discovery&quot;</a>.</p>
+<h4>The Challenge: Finding the Right Data for Better Machine Learning</h4>
+<p>Imagine you have a dataset, perhaps daily taxi trip counts in a city, and you want to find <em>other</em> datasets that could help <strong>explain</strong> or <strong>predict</strong> these counts. You might look for datasets covering the same dates or locations (like weather data or demographics). Finding datasets that <em>can</em> be joined based on common columns (like dates or zip codes) is a known problem, but it often yields too many irrelevant results. This is because many datasets that can be joined are completely unreleated to the problem at hand. Moreover, joining every potential dataset just to see if it contains useful, correlated information is incredibly time-consuming and computationally expensive, sometimes prohibitively so.
+This need was identified while building <a href="https://arxiv.org/abs/1907.02889">Visus</a>, an interactive AutoML system that allowed users without machine-learning expertise to build effective models.
+When we started this research, existing data discovery systems relied on simple keyword searches over metadata, which isn't expressive enough for these complex needs and can be limited by incomplete or inconsistent metadata.</p>
+<h4>Auctus: A Search Engine for Data Discovery and Augmentation</h4>
+<p>As part of the early work in my PhD, we developed <strong>Auctus</strong> (<a href="https://auctus.vida-nyu.org">auctus.vida-nyu.org</a>), an open-source dataset search engine designed specifically to address some of these limitations <a href="https://arxiv.org/abs/2102.05716">[VLDB 2021]</a>. Auctus goes beyond simple keyword search by:</p>
+<ul>
+<li><strong>Ingesting data</strong> from various sources, including open data portals (like Socrata, Zenodo) and user uploads.</li>
+<li><strong>Automatically profiling datasets</strong> to extract richer metadata directly from the content. This includes detecting data types (like categorical, numerical, spatial, temporal) and computing summaries.</li>
+<li><strong>Supporting richer queries</strong>, allowing users to search not just by keywords but also by spatial or temporal constraints, required data types, or even finding datasets that can be joined or concatenated with an input dataset.</li>
+<li><strong>Providing an interactive interface</strong> to explore search results, view dataset summaries and statistics, and even perform data augmentation operations directly.</li>
+</ul>
+<p>Developing Auctus highlighted the need for even more advanced techniques, particularly for efficiently finding datasets that are not just joinable, but also <em>correlated</em>. This experience directly motivated the subsequent research contributions focused on <em>Join-Correlation Queries</em> and sketching algorithms to support answering such queries <em>efficiently</em>.</p>
+<div class="mb-5 pb-4 mt-3" style="text-align:center">
+ <img src="/static/img/auctus_teaser.png" style="max-width:700px" alt="Screenshot of the Auctus dataset search engine user interface, showing labeled components: A) search box with keyword and filters, B) search results list with snippets (B1) and dataset summary (B2), C) dataset upload button area, and D) dataset collection statistics."/><br>
+ <small class="small"><strong>Figure 1:</strong> Auctus’ user interface: (A) keyword and filter-based search box; (B) search results; (B1) dataset snippets; (B2) dataset summary; (C) dataset upload; (D) dataset collection statistics.</small>
 </div>
+<!-- #### Defining "Join-Correlation Queries" (JCQs) -->
+<h4>Finding Data that are Joinable AND Correlated</h4>
+<p>The next step was to precisely define the type of search needed for correlated data. I introduced and formalized the concept of <strong>Join-Correlation Queries (JCQs)</strong> <a href="https://arxiv.org/abs/2104.03353">[ACM SIGMOD 2021]</a>.</p>
+<p>In simple terms, a JCQ asks: Given my table (e.g., taxi trips <code>TY</code> with trip counts <code>Y</code> and join column <code>KY</code> like 'Date' or 'ZipCode'), find other tables (<code>TX</code>) in a large collection that:</p>
+<ol>
+<li>Can be <strong>joined</strong> with my table <code>TY</code> on our common column <code>KY</code>.</li>
+<li>Contain a column <code>X</code> (e.g., 'Rainfall' or 'Population') that is <strong>strongly correlated</strong> with my target column <code>Y</code> ('NumTrips') <strong>after</strong> the join is performed.</li>
+</ol>
+<p>This query type directly addresses the need to find datasets that are not just linkable, but are likely to contain meaningful predictive or explanatory signals.</p>
+<p><strong>For practitioners, here's another way to think about it using Python libraries:</strong> Imagine you have your primary DataFrame (<code>TY</code>) with a target variable (<code>Y</code>) and a key column (<code>KY</code>). You want to find other DataFrames (<code>TX</code>) scattered across a data lake. A JCQ aims to identify a <code>TX</code> such that if you were to perform a <code>pandas.merge(TY, TX, left_on='KY', right_on='KX')</code>, the resulting merged DataFrame would contain at least one column (<code>X</code>) originating from <code>TX</code> that shows a strong statistical relationship (like high correlation or mutual information) with your original target column <code>Y</code>. In machine learning terms, you're looking for tables <code>TX</code> which, after merging, provide a new feature <code>X</code> that would help a scikit-learn model trained using <code>.fit(Y, [X])</code> to predict <code>Y</code>. JCQ automates the discovery of tables <code>TX</code> that satisfy both the merge possibility and the <strong>potential</strong> for a good feature fit.</p>
+<p>Unfortunately, naïve solutions for such queries in large data repositories can be way too expensive!</p>
+<h4>Summarizing Data for Efficient Join-Correlation Estimation</h4>
+<p>The main bottleneck is the cost of actually performing all those potential joins, so we must avoid them if we need efficient solutions. The core idea of my work was to use <strong>data sketches</strong> – think of them as highly compressed, intelligent summaries or fingerprints of the data columns.</p>
+<p>Instead of working with the full datasets, we can pre-compute these sketches for all tables in a repository. Then, at query time, we can compare the <em>sketches</em> of the query table and candidate tables to <em>estimate</em> the correlation between columns <em>without</em> performing the full join. Additionally, sketches can be indexed and queried using systems like Elasticsearch to quickly find potential joinable tables. This makes the process significantly faster.</p>
+<p>My research developed specific sketching algorithms tailored for this:</p>
+<ul>
+<li><strong>CSK (the 'original' Correlation Sketch)</strong> <a href="https://arxiv.org/abs/2104.03353">[ACM SIGMOD 2021]</a>: The initial method designed to estimate correlations (like Pearson's or Spearman's) across unjoined tables. It cleverly uses hashing to ensure that sketches of joinable tables have overlapping elements, allowing for correlation estimation on this overlap. The core technique used here is known as <a href="https://dl.acm.org/doi/abs/10.1145/3584372.3589935">coordinated sampling</a>.</li>
+<li><strong>TUPSK (Tuple-based Sketch)</strong> <a href="https://arxiv.org/abs/2403.15553">[IEEE ICDE 2024]</a>: An improvement over CSK, specifically designed to better handle real-world data complexities like LEFT joins over repeated join key values (common when joining tables for machine learning). TUPSK ensures a uniform sampling of the data, reducing bias in estimations, especially when join keys are skewed.</li>
+</ul>
+<p>While both algorithms can be used to estimate more complex, non-linear relationships using measures like <strong>Mutual Information (MI)</strong> over numerical and categorical data, the original paper <a href="https://arxiv.org/abs/2104.03353">[ACM SIGMOD 2021]</a> focused on traditional correlations over numerical data, whereas the <a href="https://arxiv.org/abs/2403.15553">[IEEE ICDE 2024]</a> paper focused on MI over both data types.</p>
+<p>A key challenge with using estimates is dealing with potential errors – sometimes, a sketch might make a weak correlation look strong just by chance. My work also developed methods to create <strong>confidence bounds</strong> for these sketch-based estimates and designed <strong>scoring functions</strong> that rank potential results by considering both the estimated correlation strength and our confidence in that estimate, pushing more reliable results to the top.</p>
+<h4>Weighted Queries and Even Faster Indexing (QCR)</h4>
+<p>Another issue that arises when obtaining new features via table joins is that unmatched join keys lead to missing data values in the new feature <code>X</code>. To address this issue, we introduced <strong>Weighted Join-Correlation Queries</strong> in <a href="/static/pdfs/icde2022-qcr-index.pdf">IEEE ICDE 2022</a>. This approach allows users to adjust their search criteria by specifying the importance of joinability versus correlation strength. This way, they can strike a balance between predictive power and the presence of missing data. Depending on your needs, you might prioritize a strong correlation even if the join overlap is not perfect, or you may find a reasonable overlap to be more critical.</p>
+<p>While the method method discussed above allows to answer this query, we wanted to make these queries even faster and more accurate! To do so, we developed a novel hashing scheme called <strong>QCR (Quadrant Count Ratio)</strong>. This method cleverly encodes information about both the join key <em>and</em> whether the numerical value falls into a positive or negative correlation quadrant (relative to the mean) into a single hash term. This allows us to build an index (the QCR Index) where finding tables that are <em>both</em> joinable <em>and</em> correlated is reduced to a fast set overlap search, retrieving candidates in a single step rather than the two-stage (joinability then correlation) approach needed previously. As before, all of these terms can be indexed in systems such as Elasticsearch or relational databases, enabling rapid searching across large collections. Experiments showed this QCR approach significantly improves recall (finding more relevant tables) and ranking quality, often using less storage space than the previous sketch-only methods.</p>
+<h4>Why Does This Matter?</h4>
+<p>These algorithms provide practical tools for navigating massive data collections. They make it feasible to automatically discover features that can significantly improve machine learning models, as demonstrated in use cases like predicting taxi demand or identifying protein measurements linked to cancer gene mutations. For instance, the images below show examples of gene prediction models that can be trained with automatically discovered features, and achieve comparable performance to models built using biological domain expertise. By estimating relationships efficiently <em>before</em> performing expensive data integration steps, these methods save valuable time and computational resources for data scientists and researchers (Note: see <a href="/static/pdfs/phd-thesis.pdf#page=157.27">Chapter 7</a> for details, as these results do not appear in any of the previous papers!).</p>
+<div class="mb-4 pb-4 mt-3" style="text-align:center">
+ <img src="/static/img/ctnnb1-prediction-paper.png" style="max-width:40%" class="mr-4" alt="ROC curves reproduced from Dou et al., Cancer Cell 2023, illustrating the performance of models predicting CTNNB1 mutation status using proteomics features selected via t-tests and biological knowledge."/>
+ <img src="/static/img/ctnnb1-prediction-qcr.png"   style="max-width:39%" class="ml-4" alt="ROC curves comparing models predicting CTNNB1 mutation status using top 5, 10, 25, or 100 features discovered automatically with a QCR index, plus a random baseline. The QCR models (especially top 25) achieve high AUC scores, nearing 0.95."/>
+ <br>
+ <small class="small">
+   <strong>Figure 2:</strong> <em>Left:</em> Models from <a href="https://www.cell.com/cancer-cell/fulltext/S1535-6108(23)00247-7">Dou et al. [Cancer Cell, 2023]</a> that use t-tests and biological knowledge to select the top 10 best features in each model. <em>Right:</em> Models built using the top-{5, 10, 25, 100} features discovered automatically using a QCR index. Since the ML model
+ </small>
+</div>
+<h4>Wrapping Up</h4>
+<p>The explosion of data requires smarter tools for discovery. My PhD work contributes new algorithms and formalisms to efficiently find correlated information hidden across disparate datasets. By leveraging the power of sketching and specialized indexing, we can move beyond simple keyword search towards more powerful, data-driven discovery, ultimately helping us make better sense of the complex world reflected in our data.</p>
 
           </div>
         </div>
