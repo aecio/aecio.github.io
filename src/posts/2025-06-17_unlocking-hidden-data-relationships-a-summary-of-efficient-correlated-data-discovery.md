@@ -1,10 +1,9 @@
 ---
 title: "Unlocking Hidden Data Relationships: A Deep Dive into Efficient Correlated Data Discovery"
 author: Aécio Santos
-permalink: /2025/04/20/unlocking-hidden-data-relationships-a-summary-of-efficient-correlated-data-discovery/
-#published_time: June 8, 2015
-published_time: 2025-04-20T19:15:00+00:00
-modified_time: 2025-04-20T19:15:00+00:00
+permalink: /2025/06/17/unlocking-hidden-data-relationships-a-summary-of-efficient-correlated-data-discovery/
+published_time: 2025-06-17T12:23:00+00:00
+modified_time:  2025-06-17T12:23:00+00:00
 content_type: markdown
 extra:
   content_class: "blog-post"
@@ -12,15 +11,15 @@ extra:
 
 # Unlocking Hidden Data Relationships: A Deep Dive into Efficient Correlated Data Discovery
 
-_April 20, 2025_
+_June 17, 2025_
 
 We live in an era of unprecedented data generation, from scientific research to government records and business operations. This vast availability offers great opportunities for analysis and discovery, but it also raises a significant challenge: **how do we identify the _right_ data in such immense repositories?**
 
-In my PhD research, I focused on the challenging but essential task of discovering _correlated_ data across different datasets. Now, one year after completing my PhD, I am writing this post to provide a brief summary of my thesis: ["Efficient Algorithms for Correlated Data Discovery"](/static/pdfs/phd-thesis.pdf).
+In my PhD research, I focused on the challenging but essential task of discovering _correlated_ data across different datasets. Now, one year after completing my PhD, my thesis has been awarded a [2025 ACM SIGMOD Jim Gray Doctoral Dissertation, Honorable Mention](https://sigmod.org/sigmod-awards/sigmod-jim-gray-doctoral-dissertation-award/). If you are curious and have the time, you can read the full thesis here: ["Efficient Algorithms for Correlated Data Discovery"](/static/pdfs/phd-thesis.pdf). Otherwise, keep reading if you just want a TL;DR.
 
 #### The Challenge: Finding the Right Data for Better Machine Learning
 
-Imagine you have a dataset, perhaps daily taxi trip counts in a city, and you want to find _other_ datasets that could help **explain** or **predict** these counts. You might look for datasets covering the same dates or locations (like weather data or demographics). Finding datasets that _can_ be joined based on common columns (like dates or zip codes) is a known problem, but it often yields too many irrelevant results. This is because many datasets that can be joined are completely unreleated to the problem at hand. Moreover, joining every potential dataset just to see if it contains useful, correlated information is incredibly time-consuming and computationally expensive, sometimes prohibitively so.
+Imagine you have a dataset, perhaps daily taxi trip counts in a city, and you want to find _other_ datasets that could help **explain** or **predict** these counts. You might look for datasets covering the same dates or locations (like weather data or demographics). Finding datasets that _can_ be joined based on common columns (like dates or zip codes) is a known problem, but it often yields too many irrelevant results. This is because many datasets that can be joined are completely unrelated to the problem at hand. Moreover, joining every potential dataset just to see if it contains useful, correlated information is incredibly time-consuming and computationally expensive, sometimes prohibitively so.
 This need was identified while building [Visus](https://arxiv.org/abs/1907.02889), an interactive AutoML system that allowed users without machine-learning expertise to build effective models.
 When we started this research, existing data discovery systems relied on simple keyword searches over metadata, which isn't expressive enough for these complex needs and can be limited by incomplete or inconsistent metadata.
 
@@ -48,10 +47,10 @@ The next step was to precisely define the type of search needed for correlated d
 
 In simple terms, a JCQ asks: Given my table (e.g., taxi trips `TY` with trip counts `Y` and join column `KY` like 'Date' or 'ZipCode'), find other tables (`TX`) in a large collection that:
 
-1.  Can be **joined** with my table `TY` on our common column `KY`.
-2.  Contain a column `X` (e.g., 'Rainfall' or 'Population') that is **strongly correlated** with my target column `Y` ('NumTrips') **after** the join is performed.
+1. Can be **joined** with my table `TY` on our common column `KY`.
+2. Contain a column `X` (e.g., 'Rainfall' or 'Population') that is **strongly correlated** with my target column `Y` ('NumTrips') **after** the join is performed.
 
-This query type directly addresses the need to find datasets that are not just linkable, but are likely to contain meaningful predictive or explanatory signals.
+This query type directly addresses the need to find datasets that can be combined (via a join) **and** are likely to contain meaningful predictive or explanatory signals.
 
 **For practitioners, here's another way to think about it using Python libraries:** Imagine you have your primary DataFrame (`TY`) with a target variable (`Y`) and a key column (`KY`). You want to find other DataFrames (`TX`) scattered across a data lake. A JCQ aims to identify a `TX` such that if you were to perform a `pandas.merge(TY, TX, left_on='KY', right_on='KX')`, the resulting merged DataFrame would contain at least one column (`X`) originating from `TX` that shows a strong statistical relationship (like high correlation or mutual information) with your original target column `Y`. In machine learning terms, you're looking for tables `TX` which, after merging, provide a new feature `X` that would help a scikit-learn model trained using `.fit(Y, [X])` to predict `Y`. JCQ automates the discovery of tables `TX` that satisfy both the merge possibility and the **potential** for a good feature fit.
 
@@ -80,14 +79,14 @@ While the method method discussed above allows to answer this query, we wanted t
 
 #### Why Does This Matter?
 
-These algorithms provide practical tools for navigating massive data collections. They make it feasible to automatically discover features that can significantly improve machine learning models, as demonstrated in use cases like predicting taxi demand or identifying protein measurements linked to cancer gene mutations. For instance, the images below show examples of gene prediction models that can be trained with automatically discovered features, and achieve comparable performance to models built using biological domain expertise. By estimating relationships efficiently _before_ performing expensive data integration steps, these methods save valuable time and computational resources for data scientists and researchers (Note: see [Chapter 7](/static/pdfs/phd-thesis.pdf#page=157.27) for details, as these results do not appear in any of the previous papers!).
+These algorithms provide practical tools for navigating massive data collections. They make it feasible to automatically discover features that can significantly improve machine learning models, as demonstrated in use cases like predicting taxi demand or identifying protein measurements linked to cancer gene mutations. For instance, the plots in Figure 2 below show examples of gene prediction models that can be trained with automatically discovered features, and achieve comparable performance to models built using biological domain expertise. By estimating relationships efficiently _before_ performing expensive data integration steps, these methods save valuable time and computational resources for data scientists and researchers (Note: see [Chapter 7](/static/pdfs/phd-thesis.pdf#page=157.27) for details, as these results do not appear in any of the previous papers!).
 
 <div class="mb-4 pb-4 mt-3" style="text-align:center">
  <img src="/static/img/ctnnb1-prediction-paper.png" style="max-width:40%" class="mr-4" alt="ROC curves reproduced from Dou et al., Cancer Cell 2023, illustrating the performance of models predicting CTNNB1 mutation status using proteomics features selected via t-tests and biological knowledge."/>
- <img src="/static/img/ctnnb1-prediction-qcr.png"   style="max-width:39%" class="ml-4" alt="ROC curves comparing models predicting CTNNB1 mutation status using top 5, 10, 25, or 100 features discovered automatically with a QCR index, plus a random baseline. The QCR models (especially top 25) achieve high AUC scores, nearing 0.95."/>
+ <img src="/static/img/ctnnb1-prediction-qcr.png"   style="max-width:39%" class="ml-4" alt="ROC curves comparing models predicting CTNNB1 mutation status using top 5, 10, 25, or 100 features discovered automatically with a QCR index, plus a random baseline. The QCR models (especially the one that uses top 25 features) achieve high AUC scores, nearing 0.95."/>
  <br>
  <small class="small">
-   <strong>Figure 2:</strong> <em>Left:</em> Models from <a href="https://www.cell.com/cancer-cell/fulltext/S1535-6108(23)00247-7">Dou et al. [Cancer Cell, 2023]</a> that use t-tests and biological knowledge to select the top 10 best features in each model. <em>Right:</em> Models built using the top-{5, 10, 25, 100} features discovered automatically using a QCR index. Since the ML model
+   <strong>Figure 2:</strong> <em>Left:</em> Models from <a href="https://www.cell.com/cancer-cell/fulltext/S1535-6108(23)00247-7">Dou et al. [Cancer Cell, 2023]</a> that use t-tests and biological knowledge to select the top 10 best features in each model. <em>Right:</em> Models built using the top-{5, 10, 25, 100} features discovered automatically using a QCR index.
  </small>
 </div>
 
