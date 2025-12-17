@@ -6,12 +6,12 @@ content_type: markdown
 ---
 # About Me
 
-👋🏽 Hey! I’m Aécio.
+Hey! I’m Aécio. 👋🏽
 
 ##### Professional Experience
 
-I am a Research Engineer at [New York University (NYU)](http://engineering.nyu.edu/) in New York City. At NYU, I've been working on multiple research and development projects (including DARPA's Memex and D3M programs) which require a good combination of knowledge and skills in Software Engineering, Machine Learning, and Information Retrieval (Web Search).
-Previously, I worked as a Software Engineer for a Brazilian start-up called [Zunnit Technologies](https://web.archive.org/web/20150226205818/http://www.zunnit.com/index_en.html), where we built a scalable news recommendation platform used by the major Brazilian media companies.
+I am a Postdoctoral Researcher in the Database Architectures group at [Centrum Wiskunde & Informatica (CWI)](https://www.cwi.nl/en/) in Amsterdam. Previously, I was a Research Engineer at New York University (NYU) in New York City, where I worked on multiple research and development programs, including DARPA’s Memex, D3M, ASKEM and ARPAH-H's Biomedical Data Fabric Toolbox. Before that, I worked as a Software Engineer at a Brazilian start-up called [Zunnit Technologies](https://web.archive.org/web/20150226205818/http://www.zunnit.com/index_en.html), where we built a scalable news recommendation platform used by major Brazilian media companies.
+
 
 ##### Education
 
