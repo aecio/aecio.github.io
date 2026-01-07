@@ -219,14 +219,14 @@
               <!-- <button class="btn btn--inverse">Follow</button> -->
               <div class="author__links">
                 <div class="d-flex flex-row">
-                  <a target="_blank" href="https://goo.gl/maps/rkzP7vPuUtk6cSqNA">
+                  <a target="_blank" href="https://maps.app.goo.gl/XidsJF9sHgbKcSFUA">
                     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <title>Google Maps icon</title>
                       <path
                         d="M19.527 4.799c1.212 2.608.937 5.678-.405 8.173-1.101 2.047-2.744 3.74-4.098 5.614-.619.858-1.244 1.75-1.669 2.727-.141.325-.263.658-.383.992-.121.333-.224.673-.34 1.008-.109.314-.236.684-.627.687h-.007c-.466-.001-.579-.53-.695-.887-.284-.874-.581-1.713-1.019-2.525-.51-.944-1.145-1.817-1.79-2.671L19.527 4.799zM8.545 7.705l-3.959 4.707c.724 1.54 1.821 2.863 2.871 4.18.247.31.494.622.737.936l4.984-5.925-.029.01c-1.741.601-3.691-.291-4.392-1.987a3.377 3.377 0 0 1-.209-.716c-.063-.437-.077-.761-.004-1.198l.001-.007zM5.492 3.149l-.003.004c-1.947 2.466-2.281 5.88-1.117 8.77l4.785-5.689-.058-.05-3.607-3.035zM14.661.436l-3.838 4.563a.295.295 0 0 1 .027-.01c1.6-.551 3.403.15 4.22 1.626.176.319.323.683.377 1.045.068.446.085.773.012 1.22l-.003.016 3.836-4.561A8.382 8.382 0 0 0 14.67.439l-.009-.003zM9.466 5.868L14.162.285l-.047-.012A8.31 8.31 0 0 0 11.986 0a8.439 8.439 0 0 0-6.169 2.766l-.016.018 3.665 3.084z"
                       ></path>
                     </svg>
-                    NYU Tandon
+                    CWI
                   </a>
                 </div>
                 <div>
@@ -336,6 +336,45 @@
 
 <div id="all-publications" style="display: block;" class="mt-3">
   <!-- <h3>Peer Reviewed</h3> -->
+  <h4 class='publication_year'>2026</h4>
+  <ul>
+    <li style="padding: 10px 0px">
+      <b>AutoDDG: Automated Dataset Description Generation using Large Language Models</b><br/>
+      Haoxiang Zhang, Yurong Liu, Wei-Lun (Allen) Hung, Aécio Santos, Juliana Freire<br/>
+      <em class="badge badge-secondary">SIGMOD'26</em> Proceedings of the 2026 International Conference on Management of Data<br/>
+      <small></small>
+      <div class="mt-2" style="display:flex">
+        <div class="btn-group_" role="group" aria-label="Paper download options">
+          <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2502.01050" target="_blank">
+            <i class="fa fa-file"></i>
+            Arxiv
+          </a>
+          <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2502.01050" target="_blank">
+            <i class="fa fa-file-pdf"></i>
+            PDF
+          </a>
+        </div>
+      </div>
+    </li>
+    <li style="padding: 10px 0px">
+      <b>HILTS: Human-LLM Collaboration for Effective Data Labeling</b><br/>
+      Juliana Barbosa, Eduarda Ramos, Grace Fan, Aécio Santos, Juliana Freire<br/>
+      <em class="badge badge-secondary">InfoSys'26</em> Information Systems, Volume 138<br/>
+      <small></small>
+      <div class="mt-2" style="display:flex">
+        <div class="btn-group_" role="group" aria-label="Paper download options">
+          <a class="btn btn-outline-primary" href="/static/pdfs/barbosa2026@infosys.pdf" target="_blank">
+            <i class="fa fa-file-pdf"></i>
+            PDF
+          </a>
+          <a class="btn btn-outline-primary" href="https://doi.org/10.1016/j.is.2025.102660" target="_blank">
+            <i class="fa fa-book-atlas"></i>
+            Science Direct
+          </a>
+        </div>
+      </div>
+    </li>
+  </ul>
   <h4 class='publication_year'>2025</h4>
   <ul>
     <li style="padding: 10px 0px">
@@ -410,24 +449,6 @@
       <div class="mt-2" style="display:flex">
         <div class="btn-group_" role="group" aria-label="Paper download options">
           <a class="btn btn-outline-primary" href="http://sites.computer.org/debull/A25mar/p3.pdf" target="_blank">
-            <i class="fa fa-file-pdf"></i>
-            PDF
-          </a>
-        </div>
-      </div>
-    </li>
-    <li style="padding: 10px 0px">
-      <b>AutoDDG: Automated Dataset Description Generation using Large Language Models</b><br/>
-      Haoxiang Zhang, Yurong Liu, Wei-Lun (Allen) Hung, Aécio Santos, Juliana Freire<br/>
-      <em class="badge badge-secondary">ArXiv</em> 2502.0105<br/>
-      <small></small>
-      <div class="mt-2" style="display:flex">
-        <div class="btn-group_" role="group" aria-label="Paper download options">
-          <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2502.01050" target="_blank">
-            <i class="fa fa-file"></i>
-            Arxiv
-          </a>
-          <a class="btn btn-outline-primary" href="https://arxiv.org/pdf/2502.01050" target="_blank">
             <i class="fa fa-file-pdf"></i>
             PDF
           </a>
@@ -931,6 +952,38 @@
     // Collect publication data
     const publications = [
           {
+            title: "AutoDDG: Automated Dataset Description Generation using Large Language Models",
+            authors: "Haoxiang Zhang, Yurong Liu, Wei-Lun (Allen) Hung, Aécio Santos, Juliana Freire",
+            series: "SIGMOD'26",
+            venue: "Proceedings of the 2026 International Conference on Management of Data",
+            comments: "",
+            arxiv_url: "https://arxiv.org/abs/2502.01050",
+            pdf_url: "https://arxiv.org/pdf/2502.01050",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            scidirect_url: "",
+            code_url: "",
+            slides_url: "",
+          },
+          {
+            title: "HILTS: Human-LLM Collaboration for Effective Data Labeling",
+            authors: "Juliana Barbosa, Eduarda Ramos, Grace Fan, Aécio Santos, Juliana Freire",
+            series: "InfoSys'26",
+            venue: "Information Systems, Volume 138",
+            comments: "",
+            arxiv_url: "",
+            pdf_url: "/static/pdfs/barbosa2026@infosys.pdf",
+            acmdl_url: "",
+            ieee_url: "",
+            siam_url: "",
+            springer_url: "",
+            scidirect_url: "https://doi.org/10.1016/j.is.2025.102660",
+            code_url: "",
+            slides_url: "",
+          },
+          {
             title: "Magneto: Combining Small and Large Language Models for Schema Matching",
             authors: "Yurong Liu, Eduardo Pena, Aécio Santos, Eden Wu, Juliana Freire",
             series: "PVLDB'25",
@@ -942,6 +995,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -957,6 +1011,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -972,6 +1027,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -987,6 +1043,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1002,21 +1059,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
-            code_url: "",
-            slides_url: "",
-          },
-          {
-            title: "AutoDDG: Automated Dataset Description Generation using Large Language Models",
-            authors: "Haoxiang Zhang, Yurong Liu, Wei-Lun (Allen) Hung, Aécio Santos, Juliana Freire",
-            series: "ArXiv",
-            venue: "2502.0105",
-            comments: "",
-            arxiv_url: "https://arxiv.org/abs/2502.01050",
-            pdf_url: "https://arxiv.org/pdf/2502.01050",
-            acmdl_url: "",
-            ieee_url: "",
-            siam_url: "",
-            springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1032,6 +1075,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1047,6 +1091,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1062,6 +1107,7 @@
             ieee_url: "https://ieeexplore.ieee.org/document/10597858",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1077,6 +1123,7 @@
             ieee_url: "",
             siam_url: "https://epubs.siam.org/doi/10.1137/1.9781611977936.21",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1092,6 +1139,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1107,6 +1155,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1122,6 +1171,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1137,6 +1187,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1152,6 +1203,7 @@
             ieee_url: "https://ieeexplore.ieee.org/document/9835690",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1167,6 +1219,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1182,6 +1235,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1197,6 +1251,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1212,6 +1267,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1227,6 +1283,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1242,6 +1299,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1257,6 +1315,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1272,6 +1331,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1287,6 +1347,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1302,6 +1363,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "https://github.com/VIDA-NYU/user-agent-study",
             slides_url: "",
           },
@@ -1317,6 +1379,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "",
             slides_url: "",
           },
@@ -1332,6 +1395,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "https://github.com/VIDA-NYU/domain_discovery_tool",
             slides_url: "",
           },
@@ -1347,6 +1411,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "https://link.springer.com/article/10.1007/s10791-014-9248-5",
+            scidirect_url: "",
             code_url: "https://github.com/aecio/gp4c",
             slides_url: "",
           },
@@ -1362,6 +1427,7 @@
             ieee_url: "",
             siam_url: "",
             springer_url: "",
+            scidirect_url: "",
             code_url: "https://github.com/aecio/gp4c",
             slides_url: "https://homepages.dcc.ufmg.br/~nivio/cursos/ri15/transp/spire13.pdf",
           },
@@ -1456,6 +1522,13 @@
           links += `
             <a class="btn btn-outline-primary" href="${ result.item.springer_url }" target="_blank">
               <i class="fa fa-book-atlas"></i> Springer
+            </a>
+          `;
+        }
+        if (result.item.scidirect_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="${ result.item.scidirect_url }" target="_blank">
+              <i class="fa fa-book-atlas"></i> Science Direct
             </a>
           `;
         }
