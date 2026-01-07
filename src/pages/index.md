@@ -6,7 +6,7 @@ content_type: markdown
 ---
 # About Me
 
-Hey! I’m Aécio. 👋🏽
+Hey! 👋🏽 I’m Aécio (pronounced as in: *ah-eh-see-oh*).
 
 ##### Professional Experience
 
