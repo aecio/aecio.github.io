@@ -20,6 +20,13 @@ publications:
         arxiv_url: https://arxiv.org/abs/2502.01050
         pdf_url: https://arxiv.org/pdf/2502.01050
 
+      - title: "HILTS: Human-LLM Collaboration for Effective Data Labeling"
+        authors: Juliana Barbosa, Eduarda Ramos, Grace Fan, Aécio Santos, Juliana Freire
+        series: InfoSys'26
+        venue: Information Systems, Volume 138
+        scidirect_url: https://doi.org/10.1016/j.is.2025.102660
+        pdf_url: "/static/pdfs/barbosa2026@infosys.pdf"
+
   - year: 2025
     articles:
       - title: "Magneto: Combining Small and Large Language Models for Schema Matching"
@@ -313,6 +320,12 @@ publications:
             Springer
           </a>
           {{/springer_url}}
+          {{#scidirect_url}}
+          <a class="btn btn-outline-primary" href="{{ scidirect_url }}" target="_blank">
+            <i class="fa fa-book-atlas"></i>
+            Science Direct
+          </a>
+          {{/scidirect_url}}
           {{#code_url}}
           <a class="btn btn-outline-primary" href="{{ code_url }}" target="_blank">
             <i class="fa fa-code"></i>
@@ -386,6 +399,7 @@ publications:
             ieee_url: "{{{ieee_url}}}",
             siam_url: "{{{siam_url}}}",
             springer_url: "{{{springer_url}}}",
+            scidirect_url: "{{{scidirect_url}}}",
             code_url: "{{{code_url}}}",
             slides_url: "{{{slides_url}}}",
           },
@@ -482,6 +496,13 @@ publications:
           links += `
             <a class="btn btn-outline-primary" href="${ result.item.springer_url }" target="_blank">
               <i class="fa fa-book-atlas"></i> Springer
+            </a>
+          `;
+        }
+        if (result.item.scidirect_url) {
+          links += `
+            <a class="btn btn-outline-primary" href="${ result.item.scidirect_url }" target="_blank">
+              <i class="fa fa-book-atlas"></i> Science Direct
             </a>
           `;
         }
