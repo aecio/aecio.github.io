@@ -462,6 +462,7 @@ publications:
       // Display new search results
       results.forEach(result => {
         const item = document.createElement('li');
+        item.style.padding = '10px 0px';
 
         var links = '';
         if (result.item.arxiv_url) {
@@ -528,18 +529,16 @@ publications:
           `;
         }
         item.innerHTML = `
-          <li style="padding: 10px 0px">
-            <b>${result.item.title}</b><br/>
-            ${result.item.authors}<br/>
-            <em class="badge badge-secondary">${result.item.series}</em> ${result.item.venue}<br/>
-            <small>${htmlDecode(result.item.comments)}</small>
-            <div class="mt-2" style="display:flex">
-              <div class="btn-group_" role="group" aria-label="Paper download options">
-                ${links}
-              </div>
-            <div/>
-          </li>
-          `;
+          <b>${htmlDecode(result.item.title)}</b><br/>
+          ${htmlDecode(result.item.authors)}<br/>
+          <em class="badge badge-secondary">${result.item.series || ''}</em> ${result.item.venue || ''}<br/>
+          <small>${htmlDecode(result.item.comments || '')}</small>
+          <div class="mt-2" style="display:flex">
+            <div class="btn-group_" role="group" aria-label="Paper download options">
+              ${links}
+            </div>
+          </div>
+        `;
         searchResults.appendChild(item);
       });
     }
