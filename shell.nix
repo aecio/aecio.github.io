@@ -9,4 +9,8 @@ in
     buildInputs = [
       jdk21_headless
     ];
+
+    shellHook = ''
+      export PATH="/Users/aeciosantos/workspace/personal/sitegen/build/install/sitegen/bin:$PATH"
+    '';
   }
