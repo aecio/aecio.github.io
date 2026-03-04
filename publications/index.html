@@ -728,7 +728,7 @@
   <ul>
     <li style="padding: 10px 0px">
       <b>Towards Evaluating Exploratory Model Building Process with AutoML Systems</b><br/>
-      Sunsoo (Ray) Hong, Sonia Castelo, Vito D’Orazio, Christopher Benthune, AécioSantos, Scott Langevin, David Jonker, Enrico Bertini, and Juliana Freire<br/>
+      Sunsoo (Ray) Hong, Sonia Castelo, Vito D’Orazio, Christopher Benthune, Aécio Santos, Scott Langevin, David Jonker, Enrico Bertini, and Juliana Freire<br/>
       <em class="badge badge-secondary">ArXiv</em> 2009.00449<br/>
       <small></small>
       <div class="mt-2" style="display:flex">
@@ -1307,7 +1307,7 @@
           },
           {
             title: "Towards Evaluating Exploratory Model Building Process with AutoML Systems",
-            authors: "Sunsoo (Ray) Hong, Sonia Castelo, Vito D’Orazio, Christopher Benthune, AécioSantos, Scott Langevin, David Jonker, Enrico Bertini, and Juliana Freire",
+            authors: "Sunsoo (Ray) Hong, Sonia Castelo, Vito D’Orazio, Christopher Benthune, Aécio Santos, Scott Langevin, David Jonker, Enrico Bertini, and Juliana Freire",
             series: "ArXiv",
             venue: "2009.00449",
             comments: "",
@@ -1515,6 +1515,7 @@
       // Display new search results
       results.forEach(result => {
         const item = document.createElement('li');
+        item.style.padding = '10px 0px';
 
         var links = '';
         if (result.item.arxiv_url) {
@@ -1581,18 +1582,16 @@
           `;
         }
         item.innerHTML = `
-          <li style="padding: 10px 0px">
-            <b>${result.item.title}</b><br/>
-            ${result.item.authors}<br/>
-            <em class="badge badge-secondary">${result.item.series}</em> ${result.item.venue}<br/>
-            <small>${htmlDecode(result.item.comments)}</small>
-            <div class="mt-2" style="display:flex">
-              <div class="btn-group_" role="group" aria-label="Paper download options">
-                ${links}
-              </div>
-            <div/>
-          </li>
-          `;
+          <b>${htmlDecode(result.item.title)}</b><br/>
+          ${htmlDecode(result.item.authors)}<br/>
+          <em class="badge badge-secondary">${result.item.series || ''}</em> ${result.item.venue || ''}<br/>
+          <small>${htmlDecode(result.item.comments || '')}</small>
+          <div class="mt-2" style="display:flex">
+            <div class="btn-group_" role="group" aria-label="Paper download options">
+              ${links}
+            </div>
+          </div>
+        `;
         searchResults.appendChild(item);
       });
     }
